@@ -10,15 +10,20 @@ nav {
   background-color: rgba(30, 33, 45, 1);
 }
 
+nav ul {
+  white-space: nowrap;
+}
+
 nav li {
   display: inline-block;
-  padding: 10px 2.5%;
+  padding: 20px 2.5%;
   position: relative;
+  margin-right: 2vw;
 }
 
 nav a {
   font-family: 'Open Sans', sans-serif;
-  font-size: 150%;
+  font-size:calc(14px + 1vw);
   text-decoration: none;
   color: #FFFFFF;
 }
@@ -45,8 +50,8 @@ nav li:hover:after {
   transform-origin: bottom left;
 }
 
-.bg_img {
-  background-image: url('logo_background.png');
+.bg-img {
+  background-image: url('./img/logo_background.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -55,36 +60,42 @@ nav li:hover:after {
   height: 70vh;
 }
 
-#bg_img_top {
+#bg-img-top {
   background-position: 50% 0%;
   width: 100vw;
   height: 70vh;
 }
 
-#bg_img_bottom {
+#bg-img-bottom {
   background-position: 50% 40%;
   width: 100%;
-  height: 30vh;
+  height: 3vh;
 }
 
 article {
-  padding-top: 3vh;
   height: 2000px;
 }
 
-h1 {
+#header-main {
+  padding-top: 3vh;
+  margin-bottom: 26vh;
+}
+
+h1, p {
   color: rgba(30, 33, 45, 1);
   font-family: 'Open Sans', sans-serif;
-  text-align: center;
   margin: 10px;
+  font-size:calc(18px + 0.5vw);
 }
 
-#header-top {
-  font-size: 7vw;
+#header-main-top {
+  font-size:calc(24px + 5vw);
+  text-align: center;
 }
 
-#header-bottom {
-  font-size: 4vw;
+#header-main-bottom {
+  font-size:calc(24px + 3.5vw);
+  text-align: center;
 }
 
 h1 span {
@@ -93,10 +104,44 @@ h1 span {
   font-family: 'Charis SIL', serif;
 }
 
-#header-top span {
-  text-shadow: 0.2vw 0.2vw rgba(30, 33, 45, 1);
+#header-main-top span {
+  font-size:calc(72px + 3vw);
+  text-shadow: 4px 4px rgba(30, 33, 45, 1);
 }
 
-#header-bottom span {
-  text-shadow: 0.15vw 0.15vw rgba(30, 33, 45, 1);
+#header-main-bottom span {
+  text-shadow: calc(2.5px + 0.03vw) calc(2.5px + 0.03vw) rgba(30, 33, 45, 1);
 }
+/*
+#intro {
+  margin: auto;
+  height: 50vh;
+  width: 80vw;
+}
+
+.section-container {
+   default background with lighter gray color?? 
+  margin-left: 10%;
+  margin-right: 10%;
+  display: inline-block;
+}
+
+#intro-header {
+  font-size:calc(48px + 2vw);
+}
+
+#intro-text {
+  text-align: left;
+}
+
+could also make this a background image with the why corn text on top of it 
+#intro-img {
+  background-image: url("./img/knife1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: contain;
+  background-position: center;
+  width: 630px;
+  height: 300px;
+}
+

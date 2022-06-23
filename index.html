@@ -1,28 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head lang="en">
     <title> Chris Cornelius Knives </title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:wght@700&family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    
     <script src="script.js" defer></script>
   </head>
   <body>
     <nav>
       <ul>
-        <li> <a> Why Cornelius? </a> </li>
-        <li> <a> My Craft </a> </li>
-        <li> <a> From The Founder </a> </li>
+        <li> <a href="#header-main">
+          Why Cornelius?
+        </a> </li>
+        <li> <a href="#">
+          My Craft
+        </a> </li>
+        <li> <a href="#">
+          From The Founder
+        </a> </li>
       </ul>
     </nav>
     <main>
-      <div class="bg_img" id="bg_image_top"> </div>
+      <img class="bg-img" id="bg-image-top">
       <article>
-        <h1 id="header-top"> <span> Elevate </span> your kitchen </h1>
-        <h1 id="header-bottom"> with <span> Cornelius </span></h1>
+        <div id="header-main"> 
+          <h1 id="header-main-top"> 
+            <span> Elevate </span> your kitchen
+          </h1>
+          <h1 id="header-main-bottom">
+            with <span> Cornelius </span>
+          </h1>
+        </div>
+        <div id="intro"> 
+          <div class="section-container" id="intro-left"> 
+            <h1 id="intro-header">
+              Why Cornelius?
+            </h1>
+            <p id="intro-text"> 
+              Here is some text about why people should buy Cornelius Knives for their kitchen and there needs today.
+            </p>
+          </div>
+          <div class="section-container" id="intro-right">
+            <img id="intro-img"> 
+          </div>
+        </div>
       </article>
-      <div class="bg_img" id="bg_img_bottom"> </div>
+      <img class="bg-img" id="bg_img-bottom">
     </main>
   </body>
 </html>
