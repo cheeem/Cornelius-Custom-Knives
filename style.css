@@ -4,33 +4,73 @@
   box-sizing: border-box;
 }
 
-nav {
-  position: fixed;
-  width: 100vw;
-  background-color: rgba(30, 33, 45, 1);
-}
-
-nav ul {
-  white-space: nowrap;
-}
-
-nav li {
-  display: inline-block;
-  padding: 20px 2.5%;
+#header-bg-text-container {
   position: relative;
-  margin-right: 2vw;
+  font-size: 0;
 }
 
-nav a {
-  font-family: 'Open Sans', sans-serif;
-  font-size:calc(14px + 1vw);
-  text-decoration: none;
-  color: #FFFFFF;
+.slide {
+    background-image: url("./img/knife4.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: opacity 1s linear;
+    -moz-transition: opacity 1s linear;
+    -o-transition: opacity 1s linear;
+    transition: opacity 1s linear;
+}
+.showMe {
+  opacity: 1;
 }
 
-nav:hover {
-  background-color: rgba(30, 33, 45, 0.9);
+
+#header-logo-img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(240deg) brightness(104%) contrast(104%);
+  width: 100px;
+  height: 100px;
+  top: 0.5vw;
+  left: 0.5vw;
+  position: absolute;
 }
+
+
+.header-text {
+  position: absolute;
+  bottom: 2vw;
+  left: 2vw;
+}
+
+#header-text-top {
+  margin-left: 4px;
+  color: white;
+  color: rgba(255,255,255,1);
+  font-family: "Roboto", sans-serif;
+  font-size: calc(4vh);
+  text-transform: none;
+  letter-spacing: 0.1vw;
+}
+
+#header-text-bottom {
+  color: white;
+  color: rgba(255,255,255,1);
+  font-family: "Roboto", sans-serif;
+  font-size: calc(36px + 4vh);
+  text-transform: uppercase;
+  letter-spacing: 0.4vw;
+}
+
+article {
+  height: 2000px;
+}
+
+/*
 
 nav li:after {
   content: '';
@@ -40,7 +80,7 @@ nav li:after {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 1);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -51,7 +91,7 @@ nav li:hover:after {
 }
 
 .bg-img {
-  background-image: url('./img/logo_background.png');
+  background-image: url('./img/knife1-1.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -60,88 +100,4 @@ nav li:hover:after {
   height: 70vh;
 }
 
-#bg-img-top {
-  background-position: 50% 0%;
-  width: 100vw;
-  height: 70vh;
-}
-
-#bg-img-bottom {
-  background-position: 50% 40%;
-  width: 100%;
-  height: 3vh;
-}
-
-article {
-  height: 2000px;
-}
-
-#header-main {
-  padding-top: 3vh;
-  margin-bottom: 26vh;
-}
-
-h1, p {
-  color: rgba(30, 33, 45, 1);
-  font-family: 'Open Sans', sans-serif;
-  margin: 10px;
-  font-size:calc(18px + 0.5vw);
-}
-
-#header-main-top {
-  font-size:calc(24px + 5vw);
-  text-align: center;
-}
-
-#header-main-bottom {
-  font-size:calc(24px + 3.5vw);
-  text-align: center;
-}
-
-h1 span {
-  text-transform: uppercase;
-  color: BurlyWood;
-  font-family: 'Charis SIL', serif;
-}
-
-#header-main-top span {
-  font-size:calc(72px + 3vw);
-  text-shadow: 4px 4px rgba(30, 33, 45, 1);
-}
-
-#header-main-bottom span {
-  text-shadow: calc(2.5px + 0.03vw) calc(2.5px + 0.03vw) rgba(30, 33, 45, 1);
-}
-/*
-#intro {
-  margin: auto;
-  height: 50vh;
-  width: 80vw;
-}
-
-.section-container {
-   default background with lighter gray color?? 
-  margin-left: 10%;
-  margin-right: 10%;
-  display: inline-block;
-}
-
-#intro-header {
-  font-size:calc(48px + 2vw);
-}
-
-#intro-text {
-  text-align: left;
-}
-
-could also make this a background image with the why corn text on top of it 
-#intro-img {
-  background-image: url("./img/knife1.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: contain;
-  background-position: center;
-  width: 630px;
-  height: 300px;
-}
 
