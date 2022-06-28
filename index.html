@@ -11,19 +11,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:wght@700&family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@500&family=PT+Serif:ital,wght@0,700;1,700&family=Roboto:wght@900&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-    
-    <script src="script.js" defer></script>
+    <script src="./modules/crossfadeImages.js" defer></script>
+    <script src="./modules/createTestimonies.js" defer></script>
   </head>
   <body>
     <header>
       <div id="header-bg-img-container">
         <div id="slideimg0" class="slide showMe"> </div>
         <div id="slideimg1" class="slide"> </div>
-        <div id="slideimg2" class="slide"> </div>
-        <div id="slideimg3" class="slide"> </div>
       </div>
       <img id="header-logo-img" src="./img/CC_logo.png">
       <div class=header-text>
@@ -37,6 +34,53 @@
     </header>
     <main>
       <article>
+        <section id="opener">
+          <div id="intro-container" class="opener-item">
+            <div id="intro-header">
+              Why Cornelius?
+            </div>
+            <div id="intro-body">
+              Here is some text about why people should buy Cornelius Custom Knives today as opposed to other available products that are currently on the market as of today
+            </div>
+            <div id="intro-img">
+              <div id="intro-img-label">
+                A knife Made By Chris Cornelius
+              </div>
+            </div>
+          </div>
+          <div id="form-container" class="opener-item">
+            <h1 id="form-header">
+              Start Your Journey With Cornelius
+            </h1>
+            <form>
+              <label for="fname">First Name</label>
+              <input type="text" id="first-name" name="firstname" placeholder="Your first name">
+              <label for="lname">Last Name</label>
+              <input type="text" id="last-name" name="lastname" placeholder="Your last name">
+              <label for="lname">Subject</label>
+              <input type="text" id="subject" name="lastname" placeholder="">
+              <label for="subject">Message</label>
+              <textarea id="subject" name="message" placeholder="Start a conversation today" style="height:200px"></textarea>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </section>
+        <section id="customer-testimonies">
+          <h1 id="testimonies-header">
+            A Word From Cornelius Custom Customers
+          </h1>
+          <template id="testimony-template">
+            <div id="testimony-container">
+              <div id="customer-profile" class="testimony-item">
+                <div id="customer-img"> </div>
+                <div id="customer-name">
+                </div>
+              </div>
+              <div id="testimony-body" class="testimony-item">
+              </div>
+            </div>
+          </template>
+        </section>
       </article>
     </main>
   </body>
