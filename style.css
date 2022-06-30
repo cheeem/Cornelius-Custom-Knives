@@ -170,21 +170,24 @@ input[type="submit"]:hover {
   margin-top: 50px;
 }
 
-#testimonies-header {
-  margin-left: 20px;
+.section-header {
   color: #333333;
   font-size: calc(24px + 1vw);
   font-weight: bold;
 }
 
+#testimonies-header {
+  margin-left: 20px;
+}
+
 #testimony-container {
   display: flex;
   justify-content: center;
-  align-items: start;
   padding: 10px;
 }
 
 .testimony-item {
+  /*height: calc(10vw + 12px + 0.5vw + 20px + 60px);*/
   background-color: #333333;
   color: #FFFFFF;
   margin: 10px;
@@ -195,7 +198,6 @@ input[type="submit"]:hover {
 #customer-profile {
   flex-shrink; 0;
   flex-grow: 0;
-  max-width: 250px;
 }
 
 #customer-img {
@@ -205,13 +207,14 @@ input[type="submit"]:hover {
   background-position: center;
   background-size: cover;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 10vw;
+  height: 10vw;
   margin: auto auto;
 }
 
 #customer-name {
-  font-size: 18px;
+  line-height: 1;
+  font-size: calc(12px + 0.5vw);
   margin-top: 20px;
   text-align: center;
   font-weight: bold;
@@ -222,11 +225,25 @@ input[type="submit"]:hover {
   margin: auto auto;
 }
 
-#testimony-body-baseplate {
-}
-
 #testimony-body {
   flex-grow: 1;
   overflow: scroll;
-  font-size: 20px;
+  font-size: calc(16px + 1vw);
+}
+
+#craft-desc {
+  margin-top: 50px;
+  padding: 20px;
+}
+
+#craft-header-bottom {
+  font-size: calc(18px + 0.5vw);
+}
+
+.craft-stage {
+  margin-top: 20px;
+  background-color: #333333;
+  width: 100%;
+  height: 300px;
+  border-radius: 4px;
 }
