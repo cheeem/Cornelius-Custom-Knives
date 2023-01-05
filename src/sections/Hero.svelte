@@ -8,11 +8,13 @@
 
 </script>
 
-<div id="hero" use:viewport on:enterViewport={() => setActive(0)}>
+<div id="hero" class="section" use:viewport on:enterViewport={() => setActive(0)}>
+
+  <a href="#products"> <img src="/src/img/knife11-6.png" alt="" />  </a>
     
   <div class="heading">
     <h1> Cornelius </h1>
-    <h4> Elevate Your Kitchen </h4>
+    <h4> Invite Color To Your Kitchen </h4>
   </div>
 
 </div>
@@ -20,18 +22,38 @@
 <style>
 
   #hero {
+    z-index: 1;
+
     position: relative;
 
     display: flex;
     align-items: center;
 
     height: 100vh;
+  }
 
-    background-image: url('../img/knife11-4.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+  a {
+    cursor: pointer;
+  }
+
+  img {
+    position: absolute;
+    top: 35%;
+    left: 0;
+
+    width: 130vw;
+    height: 20em;
+
+    rotate: -10deg;
+    filter: grayscale(100%);
+
+    transition: 0.5s;
+  }
+
+  img:hover {
+    filter: grayscale(0%);
+    
+    scale: 1.03;
   }
 
   .heading {
@@ -45,9 +67,9 @@
   }
 
   .heading h4 {
-    font-size: 1.5em;
+    font-size: 1.3em;
 
-    translate: 0 -1.5em;
+    translate: 0 -1.8em;
   }
 
   .heading h1 {

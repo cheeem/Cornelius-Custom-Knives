@@ -1,8 +1,11 @@
 <script>
 
+  //import navbar
+  import Nav from './Nav.svelte';
+
   //import sections
-  import Nav from './sections/Nav.svelte';
   import Hero from './sections/Hero.svelte';
+  import Products from './sections/Products.svelte';
 
   import { viewport } from './utils/viewport.js';
 
@@ -36,11 +39,13 @@
 
   <Hero {setActive} />
 
-  <div id="products" use:viewport on:enterViewport={() => setActive(1)}> </div>
+  <Products {setActive} />
 
-  <div id="my-craft" use:viewport on:enterViewport={() => setActive(2)}></div>
+  <div id="reviews" class="section" use:viewport on:enterViewport={() => setActive(2)}></div>
 
-  <div id="contact" use:viewport on:enterViewport={() => setActive(3)}></div>
+  <div id="my-craft" class="section" use:viewport on:enterViewport={() => setActive(3)}></div>
+
+  <div id="contact" class="section" use:viewport on:enterViewport={() => setActive(4)}></div>
 
 
 </main>
@@ -50,12 +55,6 @@
   main {
     display: grid;
     gap: 10em;
-  }
-
-  div {
-    height: 250vh;
-
-    background: linear-gradient(lightpink, white);
   }
 
 </style>

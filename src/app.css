@@ -23,10 +23,22 @@
 
   /* neutral palette */
   --white: white;
-  --lightgrey: hsla(252, 10%, 95%, 1);
-  --mediumgrey: hsla(252, 10%, 80%, 1);
-  --mediumdarkgrey: hsla(252, 10%, 45%, 1);
-  --darkgrey: hsla(252, 10%, 30%, 1);
+  --lightgrey: hsla(0, 0%, 90%, 1);
+  --mediumgrey: hsla(0, 0%, 80%, 1);
+  --mediumdarkgrey: hsla(0, 0%, 45%, 1);
+  --darkgrey: hsla(0,0%,9%, 1);
+
+  /* lower opacity palette */
+  --darkgrey-01: hsla(0,0%,9%, 0.1);
+  --darkgrey-02: hsla(0,0%,9%, 0.2);
+  --darkgrey-03: hsla(0,0%,9%, 0.3);
+  --darkgrey-04: hsla(0,0%,9%, 0.4);
+  --darkgrey-05: hsla(0,0%,9%, 0.5);
+  --darkgrey-06: hsla(0,0%,9%, 0.6);
+  --darkgrey-07: hsla(0,0%,9%, 0.7);
+  --darkgrey-08: hsla(0,0%,9%, 0.8);
+  --darkgrey-09: hsla(0,0%,9%, 0.9);
+
   
   /* color palette */ 
   --color1: hsla(240, 100%, 71%, 1);
@@ -42,6 +54,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.section {
+  overflow: hidden;
 }
 
 .hidden {
