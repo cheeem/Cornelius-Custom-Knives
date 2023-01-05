@@ -1,6 +1,7 @@
 <script>
 
   //import images 
+  import img_knife11_6 from '../img/knife11-6.png';
   import img_knife11 from '../img/knife11.jpg';
   import img_knife14 from '../img/knife14.jpg';
   import img_knife15 from '../img/knife15.jpg';
@@ -38,7 +39,10 @@
 
   <ul>
 
-    <div class="vertex" use:viewport on:enterViewport={() => viewed = true} on:exitViewport={() => viewed = false}> </div>
+    <div class="vertex" use:viewport on:enterViewport={() => viewed = true} on:exitViewport={() => viewed = false}></div>
+
+    <img src={img_knife11_6} alt="" />
+    <img src={img_knife11_6} alt="" />
 
     {#each knives as src, i}
       <li class={viewed ? `knife viewed`: `knife`} style={`
@@ -61,12 +65,32 @@
 <style>
 
   #products {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4em;
 
     padding: 10em 5em;
+  }
+
+  img {
+    position: absolute;
+
+    width: 75vw;
+    height: 10em;
+
+    filter: contrast(0) opacity(0.04);
+  }
+
+  img:first-of-type {
+    rotate: -230deg;
+  }
+
+  img:last-of-type {
+    transform: scaleX(-1);
+    rotate: 50deg;
   }
 
   .heading * {
