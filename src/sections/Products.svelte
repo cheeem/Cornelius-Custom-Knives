@@ -1,5 +1,12 @@
 <script>
 
+  //import images 
+  import img_knife11 from '../img/knife11.jpg';
+  import img_knife14 from '../img/knife14.jpg';
+  import img_knife15 from '../img/knife15.jpg';
+  import img_knife16 from '../img/knife16.jpg';
+  import img_knife10 from '../img/knife10.jpg';
+
   //import utilities
   import { viewport } from '../utils/viewport.js';
 
@@ -11,11 +18,11 @@
 
   //define knives
   const knives = [
-    11, 
-    14,
-    15,
-    16,
-    10,
+    img_knife11,
+    img_knife14,
+    img_knife15,
+    img_knife16,
+    img_knife10,
   ];
 
   $: angle = viewed ? 80 : 30;
@@ -33,13 +40,13 @@
 
     <div class="vertex" use:viewport on:enterViewport={() => viewed = true} on:exitViewport={() => viewed = false}> </div>
 
-    {#each knives as id, i}
+    {#each knives as src, i}
       <li class={viewed ? `knife viewed`: `knife`} style={`
         translate: -50%, -50%; 
         rotate: ${-angle / (knives.length/2) + angle / (knives.length) * (knives.length-1-i)}deg;
       `}>
         <div class="card" style={`
-          background-image: url(/src/img/knife${id}.jpg);
+          background-image: url(${src});
         `}>
         </div>
       </li>

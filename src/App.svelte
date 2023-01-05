@@ -4,7 +4,7 @@
   import Nav from './Nav.svelte';
 
   //import sections
-  import Hero from './sections/Hero.svelte';
+  import Home from './sections/Home.svelte';
   import Products from './sections/Products.svelte';
 
   import { viewport } from './utils/viewport.js';
@@ -37,7 +37,7 @@
 
   <Nav {active} />
 
-  <Hero {setActive} />
+  <Home {setActive} />
 
   <Products {setActive} />
 

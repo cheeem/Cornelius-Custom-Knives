@@ -1,10 +1,13 @@
 <script>
 
+  //import images
+  import img_logo from './img/logo.png';
+
   //define nav tabs
   const tabs = [
     {
       label: 'HOME',
-      id: 'hero',
+      id: 'home',
     },
     {
       label: 'PRODUCTS',
@@ -34,7 +37,7 @@
 <nav> 
 
   <a class="logo" href="#home">
-    <img src="./src/img/logo.png" alt="" />
+    <img src={img_logo} alt="" />
     Cornelius Custom Knives
   </a>
 
