@@ -69,6 +69,23 @@
     background-color: white;
   }
 
+  a {
+    display: grid;
+    place-items: center;
+
+    padding: 2rem 0;
+  }
+
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    font-size: 1.35em;
+    font-weight: 600;
+  }
+
   img {
     width: 2rem;
 
@@ -82,29 +99,11 @@
     gap: 4rem;
   }
 
-  a {
-    display: grid;
-    place-items: center;
-
-    padding: 2rem 0;
-  }
-
-  a, li {
-    font-weight: 600;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-
-    font-size: 1.35em;
-  }
-
   li {
     position: relative;
 
-    font-size: 1.1em;
+    font-size: 0.9em;
+    font-weight: 500;
   }
 
   li::after {
@@ -115,7 +114,7 @@
     bottom: -0.35em;
 
     width: 0;
-    height: 0.1em;
+    height: 0.08em;
 
     background-color: var(--darkgrey);
 

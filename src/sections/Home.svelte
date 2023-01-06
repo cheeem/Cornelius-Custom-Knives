@@ -26,9 +26,7 @@
 
   #home {
     z-index: 1;
-
-    position: relative;
-
+    
     display: flex;
     align-items: center;
 
@@ -48,13 +46,13 @@
     height: 20em;
 
     rotate: -10deg;
-    filter: grayscale(100%);
+    filter: grayscale(100%) drop-shadow(0.2em 0.5em 0.2em var(--mediumgrey));;
 
     transition: 0.5s;
   }
 
   img:hover {
-    filter: grayscale(0%);
+    filter: grayscale(0%) drop-shadow(0.2em 0.5em 0.2em var(--mediumgrey));;
     
     scale: 1.03;
   }

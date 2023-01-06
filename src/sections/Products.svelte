@@ -30,19 +30,22 @@
 
 </script>
 
-<div id="products" use:viewport on:enterViewport={() => setActive(1)}>
+<div id="products" class="section" use:viewport on:enterViewport={() => setActive(1)}>
   
-  <div class="heading">
-    <h1> My Products</h1>
-    <h4> Knives Crafted With Purpose </h4>
+  <div class="sidebar">
+    <h1> My Products </h1>
+    <div class="sidebar-body">
+    <div class="sidebar-line"></div>
+      <div class="sidebar-content">
+        <p> One-of-a-kind knives crafted with durability, quality, and personality </p>
+        <p> Explore The Catalogue </p>
+      </div>
+    </div>
   </div>
 
   <ul>
 
     <div class="vertex" use:viewport on:enterViewport={() => viewed = true} on:exitViewport={() => viewed = false}></div>
-
-    <img src={img_knife11_6} alt="" />
-    <img src={img_knife11_6} alt="" />
 
     {#each knives as src, i}
       <li class={viewed ? `knife viewed`: `knife`} style={`
@@ -58,51 +61,65 @@
 
   </ul>
 
-  <button> View The Full Catalogue </button>
-
 </div>
 
 <style>
 
   #products {
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
 
+  .sidebar {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 4em;
+    gap: 2.5em;
 
-    padding: 10em 5em;
+    margin-top: 1.8em;
   }
 
-  img {
-    position: absolute;
-
-    width: 75vw;
-    height: 10em;
-
-    filter: contrast(0) opacity(0.04);
+  h1 {
+    font-size: 5em;
   }
 
-  img:first-of-type {
-    rotate: -230deg;
+  .sidebar-body {
+    margin-left: 0.3em;
+
+    display: flex;
+    gap: 2em;
   }
 
-  img:last-of-type {
-    transform: scaleX(-1);
-    rotate: 50deg;
+  .sidebar-line {
+    width: 0.15em;
+
+    background-color: var(--darkgrey);
   }
 
-  .heading * {
-    text-align: center;
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    width: 45%;
   }
 
-  .heading h4 {
-    font-size: 1.5em;
+  p {
+    font-size: 1.35em;
+    font-weight: 500;
   }
 
-  .heading h1 {
-    font-size: 3.5em;
+  p:last-of-type {
+    font-size: 1.1em;
+    text-decoration: underline;
+
+    cursor: pointer;
+  }
+
+  .deck {
+    flex: 1;
+    display: flex;
+    justify-content: center;
   }
 
   ul {
@@ -165,27 +182,6 @@
   }
 
   li:hover .card {
-    scale: 1.03;
-  }
-
-  button {
-    padding: 1em 1.5em;
-
-    background-color: white;
-    
-    font-size: 1.5em;
-    font-weight: 500;
-
-    border-radius: 1em;
-    border: none;
-    box-shadow: 0 0.2em 0.2em var(--darkgrey-02);
-
-    transition: 0.3s;
-
-    cursor: pointer;
-  }
-
-  button:hover {
     scale: 1.03;
   }
 
