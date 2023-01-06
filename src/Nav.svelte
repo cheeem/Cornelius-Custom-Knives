@@ -56,8 +56,7 @@
   nav {
     z-index: 5;
 
-    position: sticky;
-    top: 0;
+    position: fixed;
 
     padding: 0 var(--page-padding);
 

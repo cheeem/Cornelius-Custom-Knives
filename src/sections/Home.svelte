@@ -50,19 +50,23 @@
     display: flex;
     align-items: center;
 
-    background: var(--white)
+    padding-top: 7.5em;
+
+    height: 100vh;
+
+    background: var(--white);
   }
 
   .grid {
     position: absolute;
-    top: 0;
+    top: 7.5em;
     left: 50%;
 
     display: grid;
     grid-auto-rows: auto;
 
     width: 50%;
-    height: 100%;
+    height: calc(100% - 7.5em);
   }
 
   .grid>div {
@@ -75,7 +79,7 @@
 
   img {
     position: absolute;
-    top: 25%;
+    top: 35%;
     left: 0;
 
     width: 130vw;
