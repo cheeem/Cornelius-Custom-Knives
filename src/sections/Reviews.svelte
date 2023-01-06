@@ -20,33 +20,42 @@
       pfp: img_profile1,
       body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       src: img_knife11,
+      viewed: false,
     },
     {
       name: 'Justin Trosper',
       pfp: img_profile2,
       body: 'Nibh cras pulvinar mattis nunc sed blandit libero. Cursus mattis molestie a iaculis at erat. At in tellus integer feugiat scelerisque varius morbi enim nunc.',
       src: img_knife14,
+      viewed: false,
     },
     {
       name: 'Vern Rumsey',
       pfp: img_profile3,
       body: 'Arcu odio ut sem nulla. Dignissim suspendisse in est ante in nibh mauris cursus. Et molestie ac feugiat sed lectus vestibulum. Arcu cursus vitae congue mauris. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada.',
       src: img_knife15,
+      viewed: false,
     },
   ];
 
 </script>
 
-<div id="reviews" class="section" use:viewport on:enterViewport={() => setActive(2)}>
+<div id="reviews" class="section"
+  use:viewport
+  on:enterViewport={() => setActive(2)}
+>
 
-  <h1 class="heading"> 
+  <h1 class={`heading`}> 
     REVIEWS
     <h1 class="watermark"> REVIEWS </h1>
   </h1>
 
   <ul>
-    {#each reviews as { pfp, name, body, src }}
-      <li>
+    {#each reviews as { pfp, name, body, src, viewed }}
+      <li class={viewed && "viewed"}
+        use:viewport
+        on:enterViewport={() => viewed = true}
+      >
         <div class="pfp">
           <div> </div>
           <div style={`
@@ -81,7 +90,7 @@
     display: flex;
     flex-direction: column;
     gap: 10rem;
-    padding: 12.5rem 7.5rem;
+    padding: 13.5rem 7.5rem;
   }
 
   .heading {
@@ -93,18 +102,39 @@
   }
 
   .heading::before {
+    z-index: 1;
+
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0.01em;
+
+    width: 15%;
+    height: 0.07em;
+
+    background-color: var(--highlight);
+
+    content: "";
+
+    border-radius: 2em 0 0 2em;
+
+    transition: 0.5s ease-in-out;
+
+    translate: -0.01em 0;
+  }
+
+  .heading::after {
+    position: absolute;
+    top: 0;
+    left: 0.01em;
 
     width: 45%;
     height: 0.07em;
 
-    background: linear-gradient(270deg, var(--darkgrey) 65%, var(--highlight) 55%);
+    background-color: var(--darkgrey);
 
     content: "";
 
-    border-radius: 1em;
+    border-radius: 2em;
   }
 
   .heading h1 {
@@ -143,6 +173,20 @@
 
     border-radius: var(--review-border-radius);
     box-shadow: 0 0 0.5em var(--darkgrey-03);
+
+    translate: 0 1em;
+
+    opacity: 0;
+    
+    transition:
+      translate 1.5s ease-out,
+      opacity 1.5s ease-in-out;
+  }
+
+  ul .viewed {
+    translate: 0;
+
+    opacity: 1;
   }
 
   .pfp, .pfp div:last-of-type {
@@ -222,13 +266,13 @@
 
     display: flex;
     flex-direction: column;
-    gap: 1.3em;
+    gap: 1.0em;
 
     padding: 4em var(--content-padding-x) 3em var(--content-padding-x);
   }
 
   h3 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   p {

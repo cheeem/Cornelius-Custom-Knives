@@ -56,17 +56,18 @@
   nav {
     z-index: 5;
 
-    position: fixed;
+    position: sticky;
+    top: 0;
+
+    padding: 0 var(--page-padding);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 0 var(--page-padding);
-
     width: 100%;
 
-    background-color: white;
+    background: var(--white);
   }
 
   a {
@@ -93,10 +94,10 @@
   }
 
   ul {
+    flex-basis: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 4rem;
   }
 
   li {
@@ -104,6 +105,8 @@
 
     font-size: 0.9em;
     font-weight: 500;
+
+    color: var(--darkgrey);
   }
 
   li::after {

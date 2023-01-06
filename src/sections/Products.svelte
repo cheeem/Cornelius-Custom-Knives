@@ -30,7 +30,10 @@
 
 </script>
 
-<div id="products" class="section" use:viewport on:enterViewport={() => setActive(1)}>
+<div id="products" class="section"
+  use:viewport
+  on:enterViewport={() => setActive(1)}
+>
   
   <div class="sidebar">
     <h1> My <span> Products </span> </h1>
@@ -71,7 +74,6 @@
 
   #products {
     display: flex;
-    gap: 0;
   }
 
   .sidebar {

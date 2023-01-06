@@ -7,6 +7,7 @@
   import Home from './sections/Home.svelte';
   import Products from './sections/Products.svelte';
   import Reviews from './sections/Reviews.svelte';
+  import Contact from './sections/Contact.svelte';
 
   import { viewport } from './utils/viewport.js';
 
@@ -34,9 +35,9 @@
 
 </script>
 
-<main>
+<Nav {active} />
 
-  <Nav {active} />
+<main>
 
   <Home {setActive} />
 
@@ -46,8 +47,7 @@
 
   <div id="my-craft" class="section" use:viewport on:enterViewport={() => setActive(3)}></div>
 
-  <div id="contact" class="section" use:viewport on:enterViewport={() => setActive(4)}></div>
-
+  <Contact {setActive} />
 
 </main>
 
