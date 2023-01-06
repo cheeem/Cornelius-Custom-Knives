@@ -17,7 +17,7 @@
     
   <div class="heading">
     <h1> Cornelius </h1>
-    <h4> Invite Color To Your Kitchen </h4>
+    <h4> Invite <span> Color </span> To Your Kitchen </h4>
   </div>
 
 </div>
@@ -26,7 +26,7 @@
 
   #home {
     z-index: 1;
-    
+
     display: flex;
     align-items: center;
 
@@ -75,6 +75,14 @@
 
   .heading h1 {
     font-size: 5em;
+  }
+
+  span::before {
+     bottom: 31%;
+     left: -5%;
+     
+     height: 12.5%;
+     width: 109%;
   }
 
 </style>

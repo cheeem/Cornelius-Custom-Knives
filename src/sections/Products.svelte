@@ -33,7 +33,7 @@
 <div id="products" class="section" use:viewport on:enterViewport={() => setActive(1)}>
   
   <div class="sidebar">
-    <h1> My Products </h1>
+    <h1> My <span> Products </span> </h1>
     <div class="sidebar-body">
     <div class="sidebar-line"></div>
       <div class="sidebar-content">
@@ -45,7 +45,11 @@
 
   <ul>
 
-    <div class="vertex" use:viewport on:enterViewport={() => viewed = true} on:exitViewport={() => viewed = false}></div>
+    <div class="vertex" 
+      use:viewport
+      on:enterViewport={() => viewed = true}
+      on:exitViewport={() => viewed = false}
+    ></div>
 
     {#each knives as src, i}
       <li class={viewed ? `knife viewed`: `knife`} style={`
@@ -67,7 +71,6 @@
 
   #products {
     display: flex;
-    flex-direction: row;
     gap: 0;
   }
 
@@ -87,13 +90,15 @@
     margin-left: 0.3em;
 
     display: flex;
-    gap: 2em;
+    gap: 2.5em;
   }
 
   .sidebar-line {
-    width: 0.15em;
+    width: 0.35em;
 
-    background-color: var(--darkgrey);
+    background: linear-gradient(180deg, var(--darkgrey) 60%, var(--highlight) 60%);
+
+    border-radius: 3em;
   }
 
   .sidebar-content {
@@ -110,7 +115,7 @@
   }
 
   p:last-of-type {
-    font-size: 1.1em;
+    font-size: 1.2em;
     text-decoration: underline;
 
     cursor: pointer;
@@ -177,11 +182,11 @@
     transition: 0.5s;
   }
 
-  li:hover {
+  li:hover, li:focus {
     z-index: 1;
   }
 
-  li:hover .card {
+  li:hover .card, li:focus .card {
     scale: 1.03;
   }
 

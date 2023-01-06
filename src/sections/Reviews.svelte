@@ -39,25 +39,30 @@
 
 <div id="reviews" class="section" use:viewport on:enterViewport={() => setActive(2)}>
 
-  <h1 class="watermark"> REVIEWS </h1>
+  <h1 class="heading"> 
+    REVIEWS
+    <h1 class="watermark"> REVIEWS </h1>
+  </h1>
 
-  {#each reviews as { pfp, name, body, src }}
-    <div class="review">
-      <div class="pfp">
-        <div> </div>
-        <div class="pfp-img" style={`
-          background-image: url(${pfp});
-        `}> </div>
-      </div>
-      <div class="content">
-        <h3> {name} </h3>
-        <p> {body} </p>
-      </div>
-      <div class="knife" style={`
-        background-image: url(${src});
-      `}></div>
-    </div>
-  {/each}
+  <ul>
+    {#each reviews as { pfp, name, body, src }}
+      <li>
+        <div class="pfp">
+          <div> </div>
+          <div style={`
+            background-image: url(${pfp});
+          `}> </div>
+        </div>
+        <div class="content">
+          <h3> {name} </h3>
+          <p> {body} </p>
+        </div>
+        <div class="knife" style={`
+          background-image: url(${src});
+        `}></div>
+      </li>
+    {/each}
+  </ul>
 
 </div>
 
@@ -75,27 +80,56 @@
   #reviews {
     display: flex;
     flex-direction: column;
-    gap: 4em;
-
-    padding: 30rem 7.5rem;
+    gap: 10rem;
+    padding: 12.5rem 7.5rem;
   }
 
-  .watermark {
+  .heading {
+    position: relative;
+
+    width: fit-content;
+
+    font-size: calc(var(--watermark-size) / 4.5);
+  }
+
+  .heading::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 45%;
+    height: 0.07em;
+
+    background: linear-gradient(270deg, var(--darkgrey) 65%, var(--highlight) 55%);
+
+    content: "";
+
+    border-radius: 1em;
+  }
+
+  .heading h1 {
     z-index: -1;
 
     position: absolute;
-    top: 0;
-    left: calc(-1 * var(--watermark-size) / 2);
+    
+    top: calc(-1 * var(--watermark-size) / 2 + var(--watermark-size) / 19);
+    left: calc(-1 * var(--watermark-size) / 2 - 5.5rem);
 
     height: 100%;
 
     font-size: var(--watermark-size);
-    color: var(--darkgrey-01);
+    color: var(--lightgrey);
 
-    opacity: 0.5;
+    opacity: 0.7;
   }
 
-  .review { 
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+  }
+
+  li { 
     z-index: -1;    
 
     position: relative;
@@ -111,7 +145,7 @@
     box-shadow: 0 0 0.5em var(--darkgrey-03);
   }
 
-  .pfp, .pfp-img {
+  .pfp, .pfp div:last-of-type {
     position: absolute;
 
     border-radius: 50%;
@@ -169,7 +203,7 @@
     border-radius: 50% 0 0 0;
   }
 
-  .pfp-img {
+  .pfp div:last-of-type {
     top: calc(var(--pfp-border-size) * 50%);
     left: calc(var(--pfp-border-size) * 50%);
 
@@ -179,6 +213,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    box-shadow: 0 0 0.3em var(--darkgrey-03);
   }
 
   .content {
@@ -196,7 +232,7 @@
   }
 
   p {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 
   .knife {
@@ -222,7 +258,7 @@
 
     content: "";
 
-    background: linear-gradient(to right, white 1%, transparent, transparent);
+    /* background: linear-gradient(to right, white 1%, transparent, transparent); */
 
     border-radius: var(--knife-border-radius);
   }
