@@ -45,8 +45,6 @@
 
   <Reviews {setActive} />
 
-  <div id="my-craft" class="section" use:viewport on:enterViewport={() => setActive(3)}></div>
-
   <Contact {setActive} />
 
 </main>

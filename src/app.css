@@ -28,7 +28,10 @@
   --mediumdarkgrey: hsla(0, 0%, 45%, 1);
   --darkgrey: hsla(0,0%,9%, 1);
 
-  /* lower opacity palette */
+  /* highlight palette */
+  --highlight: hsla(51, 100%, 50%, 1);
+
+  /* darkgrey opacity palette */
   --darkgrey-01: hsla(0,0%,9%, 0.1);
   --darkgrey-02: hsla(0,0%,9%, 0.2);
   --darkgrey-03: hsla(0,0%,9%, 0.3);
@@ -39,13 +42,20 @@
   --darkgrey-08: hsla(0,0%,9%, 0.8);
   --darkgrey-09: hsla(0,0%,9%, 0.9);
 
-  
-  /* highlight palette */
-  --highlight: hsla(51, 100%, 50%, 1);
+  /* highlight opacity palette */
+  --highlight-01: hsla(51, 100%, 50%, 0.1);
+  --highlight-02: hsla(51, 100%, 50%, 0.2);
+  --highlight-03: hsla(51, 100%, 50%, 0.3);
+  --highlight-04: hsla(51, 100%, 50%, 0.4);
+  --highlight-05: hsla(51, 100%, 50%, 0.5);
+  --highlight-06: hsla(51, 100%, 50%, 0.6);
+  --highlight-07: hsla(51, 100%, 50%, 0.7);
+  --highlight-08: hsla(51, 100%, 50%, 0.8);
+  --highlight-09: hsla(51, 100%, 50%, 0.9);
 
   /*filter palette */
   --filter-white: invert(100%) sepia(0%) saturate(7500%) hue-rotate(23deg) brightness(118%) contrast(118%);
-  --filter-black: invert(0%) sepia(82%) saturate(5293%) hue-rotate(76deg) brightness(62%) contrast(82%);
+  --filter-darkgrey: invert(0%) sepia(82%) saturate(5293%) hue-rotate(76deg) brightness(62%) contrast(82%);
   
   /* sizing styles */
   --page-padding: 7.5rem;

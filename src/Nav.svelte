@@ -17,20 +17,14 @@
       label: 'REVIEWS',
       id: 'reviews',
     },
-    {
-      label: 'MY CRAFT',
-      id: 'my-craft',
-    },
-    {
-      label: 'CONTACT',
-      id: 'contact',
-    },
+    // {
+    //   label: 'MY CRAFT',
+    //   id: 'my-craft',
+    // },
   ];
 
   //get the active state
   export let active;
-
-  //$: console.log(active);
 
 </script>
 
@@ -48,6 +42,8 @@
       </a>
     {/each}
   </ul>
+
+  <a class="contact-me" href="#contact"> Contact Me </a>
 
 </nav>
 
@@ -75,7 +71,6 @@
 
     padding: 2rem 0;
   }
-
   
   .logo {
     display: flex;
@@ -93,10 +88,9 @@
   }
 
   ul {
-    flex-basis: 50%;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    gap: 4em;
   }
 
   li {
@@ -131,6 +125,25 @@
 
   .active::after {
     width: 1.25em
+  }
+
+  .contact-me {
+    padding: 1em 1em;
+
+    font-size: 1em;
+    font-weight: 600;
+
+    border-radius: 0.5em;
+    border: 0.15em solid var(--white);
+    box-shadow: 0 0 0.3em var(--darkgrey-01);
+
+    transition: 0.3s;
+  }
+
+  .contact-me:hover {
+    background-color: var(--highlight-01);
+
+    border-color: var(--highlight);
   }
 
 </style>

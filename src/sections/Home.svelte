@@ -60,12 +60,12 @@
   .grid {
     position: absolute;
     top: 7.5em;
-    left: 50%;
+    left: 56%;
 
     display: grid;
     grid-auto-rows: auto;
 
-    width: 50%;
+    width: 45%;
     height: calc(100% - 7.5em);
   }
 

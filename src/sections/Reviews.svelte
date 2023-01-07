@@ -150,7 +150,7 @@
     font-size: var(--watermark-size);
     color: var(--lightgrey);
 
-    opacity: 0.7;
+    opacity: 0.2;
   }
 
   ul {
