@@ -131,7 +131,6 @@
     padding: 1em 1em;
 
     font-size: 1em;
-    font-weight: 600;
 
     border-radius: 0.5em;
     border: 0.15em solid var(--white);

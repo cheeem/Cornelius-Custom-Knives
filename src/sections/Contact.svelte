@@ -76,8 +76,7 @@
 
     font-size: 0.75em;
 
-    padding-right: 0;
-    padding-bottom: 0;
+    padding: 2.5em 0 0 10em;
   }
 
   form {
