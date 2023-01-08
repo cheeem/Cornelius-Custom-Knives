@@ -136,7 +136,7 @@
 
     border-radius: 0.5em;
     border: 0.15em solid var(--white);
-    box-shadow: 0 0 0.3em var(--darkgrey-01);
+    box-shadow: 0 0 0.3em var(--darkgrey-03);
 
     transition: 0.3s;
   }

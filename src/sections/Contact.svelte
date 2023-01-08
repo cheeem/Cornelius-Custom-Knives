@@ -84,7 +84,6 @@
 
       <form on:submit={e => {
         e.preventDefault();
-        console.log(e);
       }}>
         <div class="field"> 
           <label for="name">Name</label>
@@ -196,7 +195,7 @@
     font-weight: 600;
   }
 
-  input, textarea {
+  input, textarea, #submit {
     width: 100%;
 
     padding: 1em;
@@ -206,24 +205,18 @@
 
     border: none;
     border-radius: 0.6em;
-    outline-color: var(--lightgrey);
-    box-shadow: 0 0 0.3em var(--darkgrey-01);
+    outline-color: var(--darkgrey-01);
+    outline-offset: 0.3em;
+    outline-width: 0.75em;
+    box-shadow: 0 0 0.3em var(--darkgrey-03);
 
     transition: box-shadow 0.3s, outline-color 0.3s;
 
     resize: none;
   }
- 
-  input:focus-visible, textarea:focus-visible {
-    outline-offset: 0.1em;
-    outline-width: 0.3em;
-  }
 
-  input:not(input:placeholder-shown) {
+  input:not(input:placeholder-shown), form:valid #submit {
     box-shadow: 0 0 0.3em var(--input-color);
-  }
-
-  input:not(input:placeholder-shown):focus-visible {
     outline-color: var(--input-color);
   }
 
@@ -232,7 +225,7 @@
 
     width: fit-content;
 
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 600;
 
     background-color: transparent;
@@ -273,8 +266,6 @@
     color: var(--darkgrey);
 
     box-shadow: 0 0 0.3em var(--valid);
-
-    background-color: var(--valid-01);
 
     cursor: pointer;
   }

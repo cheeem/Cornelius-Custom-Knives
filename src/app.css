@@ -58,9 +58,6 @@
   --valid: hsla(120, 73%, 75%, 1);
   --invalid: red;
 
-  /* valid opacity palette */
-  --valid-01: hsla(120, 73%, 75%, 0.1);
-
   /*filter palette */
   --filter-white: invert(100%) sepia(0%) saturate(7500%) hue-rotate(23deg) brightness(118%) contrast(118%);
   --filter-darkgrey: invert(0%) sepia(82%) saturate(5293%) hue-rotate(76deg) brightness(62%) contrast(82%);
