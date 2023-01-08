@@ -1,7 +1,7 @@
 <script>
 
-  //import images
-  import img_logo from './img/logo.png';
+  //import svgs
+  import svg_logo from './svg/logo.svg';
 
   //define nav tabs
   const tabs = [
@@ -31,7 +31,7 @@
 <nav> 
 
   <a class="logo" href="#home">
-    <img src={img_logo} alt="" />
+    <img src={svg_logo} alt="" />
     Cornelius Custom Knives
   </a>
 
@@ -56,6 +56,8 @@
 
     padding: 0 var(--page-padding);
 
+    font-size: clamp(0.5rem, 0.8vw, 4rem);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,7 +71,7 @@
     display: grid;
     place-items: center;
 
-    padding: 2rem 0;
+    padding: 2em 0;
   }
   
   .logo {
@@ -77,12 +79,12 @@
     align-items: center;
     gap: 1em;
 
-    font-size: 1.35em;
+    font-size: 1.5em;
     font-weight: 600;
   }
 
   img {
-    width: 2rem;
+    width: 1.5em;
 
     filter: var(--filter-darkgrey);
   }
@@ -96,7 +98,7 @@
   li {
     position: relative;
 
-    font-size: 0.9em;
+    font-size: 1.1em;
     font-weight: 500;
 
     color: var(--darkgrey);
@@ -128,9 +130,9 @@
   }
 
   .contact-me {
-    padding: 1em 1em;
+    padding: 1em 2.15em;
 
-    font-size: 1em;
+    font-size: 1.2em;
 
     border-radius: 0.5em;
     border: 0.15em solid var(--white);

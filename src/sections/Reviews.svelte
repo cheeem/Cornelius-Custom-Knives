@@ -89,8 +89,8 @@
   #reviews {
     display: flex;
     flex-direction: column;
-    gap: 10rem;
-    padding: 13.5rem 7.5rem;
+    gap: 10vw;
+    padding: calc(5em + var(--page-padding)) var(--page-padding);
   }
 
   .heading {
@@ -157,6 +157,8 @@
     display: flex;
     flex-direction: column;
     gap: 4em;
+
+    font-size: 1vw;
   }
 
   li { 

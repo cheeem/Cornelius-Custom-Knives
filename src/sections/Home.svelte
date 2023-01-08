@@ -50,7 +50,7 @@
     display: flex;
     align-items: center;
 
-    padding-top: 7.5em;
+    padding-top: var(--page-padding);
 
     height: 100vh;
 
@@ -59,14 +59,14 @@
 
   .grid {
     position: absolute;
-    top: 7.5em;
+    top: var(--page-padding);
     left: 56%;
 
     display: grid;
     grid-auto-rows: auto;
 
     width: 45%;
-    height: calc(100% - 7.5em);
+    height: calc(100% - var(--page-padding));
   }
 
   .grid>div {
@@ -83,7 +83,7 @@
     left: 0;
 
     width: 130vw;
-    height: 20em;
+    height: 20vw;
 
     rotate: -10deg;
     filter: grayscale(100%) drop-shadow(0.2em 0.5em 0.2em var(--darkgrey-02));;
@@ -100,7 +100,9 @@
   .heading {
     margin: var(--page-padding);
 
-    translate: 0 -10em;
+    font-size: clamp(1rem, 1vw, 4rem);
+
+    translate: 0 -11.5vw;
   }
 
   .heading * {

@@ -23,6 +23,7 @@
 
   /* neutral palette */
   --white: white;
+  --lightestgrey: hsla(0, 0%, 95%, 1);
   --lightgrey: hsla(0, 0%, 90%, 1);
   --mediumgrey: hsla(0, 0%, 80%, 1);
   --mediumdarkgrey: hsla(0, 0%, 45%, 1);
@@ -53,12 +54,20 @@
   --highlight-08: hsla(51, 100%, 50%, 0.8);
   --highlight-09: hsla(51, 100%, 50%, 0.9);
 
+  /* validity palette */
+  --valid: hsla(120, 73%, 75%, 1);
+  --invalid: red;
+
+  /* valid opacity palette */
+  --valid-01: hsla(120, 73%, 75%, 0.1);
+
   /*filter palette */
   --filter-white: invert(100%) sepia(0%) saturate(7500%) hue-rotate(23deg) brightness(118%) contrast(118%);
   --filter-darkgrey: invert(0%) sepia(82%) saturate(5293%) hue-rotate(76deg) brightness(62%) contrast(82%);
-  
+  --filter-highlight: brightness(0) saturate(100%) invert(90%) sepia(15%) saturate(6108%) hue-rotate(357deg) brightness(102%) contrast(108%);
+
   /* sizing styles */
-  --page-padding: 7.5rem;
+  --page-padding: clamp(3rem, 8vw, 40rem);
 
 }
 
@@ -71,11 +80,11 @@ html {
 
   position: relative;
 
-  min-height: calc(100vh - 7.5em);
+  min-height: calc(100vh - var(--page-padding));
 }
 
 .section:not(#home) {
-  padding: 7.5rem;
+  padding: var(--page-padding);
 }
 
 .hidden {
@@ -91,12 +100,13 @@ span::before {
 
   position: absolute;
   bottom: 14%;
-  left: -1%;
+  left: 0;
 
   height: 20%;
-  width: 101.5%;
+  width: 100.75%;
 
   background-color: var(--highlight);
 
   content: "";
 }
+

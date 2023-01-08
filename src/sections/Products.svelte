@@ -1,7 +1,9 @@
 <script>
 
+  //import svgs
+  import svg_logo from '../svg/logo.svg';
+
   //import images 
-  import img_knife11_6 from '../img/knife11-6.png';
   import img_knife11 from '../img/knife11.jpg';
   import img_knife14 from '../img/knife14.jpg';
   import img_knife15 from '../img/knife15.jpg';
@@ -19,11 +21,11 @@
 
   //define knives
   const knives = [
+    img_knife16,
+    img_knife10,
     img_knife11,
     img_knife14,
     img_knife15,
-    img_knife16,
-    img_knife10,
   ];
 
   $: angle = viewed ? 80 : 30;
@@ -36,11 +38,12 @@
 >
   
   <div class="sidebar">
-    <h1> My <span> Products </span> </h1>
+    <img src={svg_logo} alt="" />
+    <h1> My <span> Creations </span> </h1>
     <div class="sidebar-body">
     <div class="sidebar-line"></div>
       <div class="sidebar-content">
-        <p> One-of-a-kind knives crafted with durability, quality, and personality </p>
+        <p> One-of-a-kind knives handcrafted with durability, quality, and personality </p>
         <p> Explore The Catalogue </p>
       </div>
     </div>
@@ -74,9 +77,13 @@
 
   #products {
     display: flex;
+
+    font-size: clamp(0.5rem, 1vw, 4rem);
   }
 
   .sidebar {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     gap: 2.5em;
@@ -84,8 +91,26 @@
     margin-top: 1.8em;
   }
 
+  img {
+    z-index: -2;
+
+    position: absolute;
+    top: 0;
+    left: -5em;
+
+    width: 20em;
+
+    rotate: -10deg;
+
+    filter: var(--filter-darkgrey);
+
+    opacity: 0.02;
+  }
+
   h1 {
     font-size: 5em;
+
+    width: fit-content;
   }
 
   .sidebar-body {

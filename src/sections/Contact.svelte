@@ -1,6 +1,12 @@
 <script>
 
   //import svgs
+  import email from '../svg/Envelope.svg';
+  import phone from '../svg/Phone.svg';
+  import facebook from '../svg/Facebook.svg';
+  import instragram from '../svg/Instagram.svg';
+  import twitter from '../svg/Twitter.svg';
+  import linkedin from '../svg/Linkedin.svg';
   
   //import utilities
   import { viewport } from '../utils/viewport.js';
@@ -8,19 +14,37 @@
   //get the set active function
   export let setActive;
 
-  //define contacts
-  const contacts = [
-    {
-      label: '',
-      link: '',
-    },
-  ]
-
   //define socials
   const socials = [
     {
-      src: '',
-      link: '',
+      label: 'Email',
+      src: email,
+      href: 'mailto:wernerjt@rfhstudent.org',
+    },
+    {
+      label: 'Phone Number',
+      src: phone,
+      href: 'tel:2025554502',
+    },
+    {
+      label: 'Facebook',
+      src: facebook,
+      href: '',
+    },
+    {
+      label: 'Instagram',
+      src: instragram,
+      href: '',
+    },
+    {
+      label: 'Twitter',
+      src: twitter,
+      href: '',
+    },
+    {
+      label: 'LinkedIn',
+      src: linkedin,
+      href: '',
     },
   ];
 
@@ -31,89 +55,135 @@
   on:enterViewport={() => setActive(3)}
 >  
 
-  <form on:submit={e => console.log(e)}>
-    <h1> Let's Get in Touch </h1>
-    <div class="body">
-      <div class="field"> 
-        <label for="name">First name</label>
-        <input required type="text" id="name" name="name" placeholder=" " pattern={`.{1,}`}>
-        <p> Please Input a Valid Name </p>
+  <div class="about-me"> 
+
+  </div>
+
+  <div class="contact">
+
+    <h1> Let's <span> Get In Touch </span> </h1>
+
+    <div class="contact-body">
+
+      <div class="socials">
+        {#each socials as { src, href, copy }}
+          {#if href}
+            <a {href}>
+              <img {src} alt="" />
+            </a>
+          {:else}
+            <div
+              on:click={() => navigator.clipboard.writeText(copy)}
+              on:keydown={() => navigator.clipboard.writeText(copy)}
+            > 
+              <img {src} alt="" />
+            </div>
+          {/if}
+        {/each}
       </div>
-      <div class="field"> 
-        <label for="email">Email</label>
-        <input required type="email" id="email" name="email" placeholder=" ">
-        <p> Please Input a Valid Email Address </p>
-      </div>
-      <div class="field"> 
-        <label for="body">Message</label>
-        <textarea required id="body" name="body" rows="5"></textarea>
-        <p> Please Input a Valid Message </p>
-      </div>
-      <input id="submit" type="submit" value="Send Message" on:submit={e => {
+
+      <form on:submit={e => {
         e.preventDefault();
         console.log(e);
       }}>
-    </div>
-  </form>
+        <div class="field"> 
+          <label for="name">Name</label>
+          <input required type="text" id="name" name="name" placeholder=" " pattern={`.{1,}`}>
+          <p> Please Input a Valid Name </p>
+        </div>
+        <div class="field"> 
+          <label for="email">Email</label>
+          <input required type="email" id="email" name="email" placeholder=" ">
+          <p> Please Input a Valid Email Address </p>
+        </div>
+        <div class="field"> 
+          <label for="body">Message</label>
+          <textarea required id="body" name="body" rows="8"></textarea>
+          <p> Please Input a Valid Message </p>
+        </div>
+        <input id="submit" type="submit" value="Send Message">
+      </form>
 
-  <div class="contact-info">
-    
+    </div>
   </div>
     
 </div>
 
 <style>
 
-  :root {
-    --valid: lightgreen;
-    --invalid: red;
-    --focus: var(--highlight);
-  }
-
   #contact {
     display: flex;
-    gap: 5em;
+    justify-content: space-between;
 
-    font-size: 0.75em;
+    font-size: 0.75vw;
 
-    padding: 2.5em 0 0 10em;
+    padding: 1.5em var(--page-padding) 1.5em var(--page-padding);
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+  }
+
+  h1 {
+    font-size: 3.5em;
+  }
+
+  span::before {
+    bottom: 12%;
+  }
+
+  .contact-body {
+    display: flex;
+    gap: 3em;
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding: 0.75em;
+
+    background-color: var(--darkgrey);
+  }
+
+  .socials > * {
+    display: grid;
+    place-items: center;
+
+    padding: 1em;
+
+    background-color: var(--darkgrey);
+
+    border-radius: 50%;
+    outline: none;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+  }
+
+  .socials > * img {  
+    width: 3em;
+
+    filter: var(--filter-white);
+  }
+
+  .socials > *:hover, .socials > *:focus {
+    background-color: var(--highlight);
   }
 
   form {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5em;
+    display: grid;
+    gap: 1.5em;
 
     width: 30em;
   }
 
-  h1 {
-    font-size: 3.25em;
-  }
-
-  .body {
-    position: relative;
-    display: grid;
-    gap: 1em;
-  }
-
-  .body:after {
-    position: aboslute;
-    top: 0;
-    left: 0;
-
-    width: 0.3em;
-    height: 100%;
-
-    background: linear-gradient(to bottom, var(--darkgrey) 60%, var(--highlight) 60%);
-
-    border-radius: 5em;
-
-    content: "";
-  }
-
   .field {
-    --input-color: var(--focus);
+    --input-color: var(--highlight);
 
     display: grid;
     gap: 0.5em;
@@ -122,7 +192,7 @@
   label {
     display: block;
 
-    font-size: 1.25em;
+    font-size: 1.4em;
     font-weight: 600;
   }
 
@@ -134,10 +204,12 @@
     font-size: 1.25em;
     font-weight: 500;
 
+    border: none;
     border-radius: 0.6em;
-    border: 0.2em solid var(--darkgrey);
+    outline-color: var(--lightgrey);
+    box-shadow: 0 0 0.3em var(--darkgrey-01);
 
-    transition: border-color 0.3s;
+    transition: box-shadow 0.3s, outline-color 0.3s;
 
     resize: none;
   }
@@ -148,7 +220,7 @@
   }
 
   input:not(input:placeholder-shown) {
-    border-color: var(--input-color);
+    box-shadow: 0 0 0.3em var(--input-color);
   }
 
   input:not(input:placeholder-shown):focus-visible {
@@ -156,6 +228,8 @@
   }
 
   #submit {
+    padding: 1em 1.75em;
+
     width: fit-content;
 
     font-size: 1.2em;
@@ -164,9 +238,6 @@
     background-color: transparent;
 
     color: var(--darkgrey-03);
-
-    border: none;
-    box-shadow: 0 0 0.3em var(--darkgrey-01);
 
     cursor: not-allowed;
 
@@ -191,7 +262,7 @@
   }
 
   .field:has(:focus) {
-    --input-color: var(--focus);
+    --input-color: var(--darkgrey-01);
   }
 
   .field:has(:valid) {
@@ -199,17 +270,13 @@
   }
 
   form:valid #submit {
-    background-color: var(--valid); /*change to lighter opacity */
-
     color: var(--darkgrey);
 
+    box-shadow: 0 0 0.3em var(--valid);
+
+    background-color: var(--valid-01);
+
     cursor: pointer;
-  }
-
-  .contact-info {
-    flex: 1;
-
-    background-color: var(--highlight);
   }
 
 </style>
