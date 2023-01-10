@@ -60,7 +60,7 @@
   .grid {
     position: absolute;
     top: var(--page-padding);
-    left: 56%;
+    left: 55.85%;
 
     display: grid;
     grid-auto-rows: auto;
@@ -79,7 +79,7 @@
 
   img {
     position: absolute;
-    top: 35%;
+    top: 35vh;
     left: 0;
 
     width: 130vw;
@@ -100,7 +100,7 @@
   .heading {
     margin: var(--page-padding);
 
-    font-size: clamp(1rem, 1vw, 4rem);
+    font-size: clamp(0.65rem, 1vw, 4rem);
 
     translate: 0 -11.5vw;
   }
@@ -125,6 +125,14 @@
      
      height: 12.5%;
      width: 109%;
+  }
+
+  @media (min-aspect-ratio: 25/10), (max-aspect-ratio: 33/20) {
+    
+    .grid {
+      display: none;
+    }
+
   }
 
 </style>

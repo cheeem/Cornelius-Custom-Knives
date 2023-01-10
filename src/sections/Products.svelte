@@ -59,7 +59,6 @@
 
     {#each knives as src, i}
       <li class={viewed ? `knife viewed`: `knife`} style={`
-        translate: -50%, -50%; 
         rotate: ${-angle / (knives.length/2) + angle / (knives.length) * (knives.length-1-i)}deg;
       `}>
         <div class="card" style={`
@@ -78,7 +77,7 @@
   #products {
     display: flex;
 
-    font-size: clamp(0.5rem, 1vw, 4rem);
+    font-size: clamp(0.75rem, 1vw, 4rem);
   }
 
   .sidebar {
@@ -189,7 +188,10 @@
 
     filter: grayscale(100%);
 
-    transition: 1s ease;
+    transition: 
+      filter 1s ease,
+      rotate 1s ease,
+      scale 0.2s ease;
 
     cursor: pointer;
   }
@@ -215,6 +217,61 @@
 
   li:hover .card, li:focus .card {
     scale: 1.03;
+  }
+
+  @media (max-width: 1200px) {
+
+    #products {
+      flex-direction: column;
+      gap: var(--page-padding);
+      align-items: center;
+    }
+
+    .sidebar {
+      font-size: clamp(0.5rem, 1.75vw, 5rem);
+    }
+
+    h1, p {
+      width: unset;
+      text-align: center;
+    }
+
+    img {
+      left: 0;
+      right: 0;
+
+      margin: 0 auto;
+      
+      top: -1em;
+    }
+
+    .sidebar-body {
+      justify-content: center;
+    }
+
+    .sidebar-line {
+      display: none;
+    }
+
+    .sidebar-content {
+      font-size: clamp(0.75rem, 2.5vw, 2rem);
+      width: clamp(15rem, 60%, 50rem);;
+    }
+
+    ul {
+      margin: 0 auto;
+
+      font-size: clamp(0.4rem, 1.3vw, 5rem);
+    }
+
+  }
+
+  @media (max-width: 900px) {
+
+    #products {
+      padding: 10em var(--page-padding);
+    }
+
   }
 
 </style>

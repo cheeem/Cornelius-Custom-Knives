@@ -1,12 +1,12 @@
 <script>
 
   //import svgs
-  import email from '../svg/Envelope.svg';
-  import phone from '../svg/Phone.svg';
-  import facebook from '../svg/Facebook.svg';
-  import instragram from '../svg/Instagram.svg';
-  import twitter from '../svg/Twitter.svg';
-  import linkedin from '../svg/Linkedin.svg';
+  import svg_email from '../svg/Envelope.svg';
+  import svg_phone from '../svg/Phone.svg';
+  import svg_facebook from '../svg/Facebook.svg';
+  import svg_instragram from '../svg/Instagram.svg';
+  import svg_twitter from '../svg/Twitter.svg';
+  import svg_linkedin from '../svg/Linkedin.svg';
   
   //import utilities
   import { viewport } from '../utils/viewport.js';
@@ -18,32 +18,32 @@
   const socials = [
     {
       label: 'Email',
-      src: email,
+      src: svg_email,
       href: 'mailto:wernerjt@rfhstudent.org',
     },
     {
       label: 'Phone Number',
-      src: phone,
+      src: svg_phone,
       href: 'tel:2025554502',
     },
     {
       label: 'Facebook',
-      src: facebook,
+      src: svg_facebook,
       href: '',
     },
     {
       label: 'Instagram',
-      src: instragram,
+      src: svg_instragram,
       href: '',
     },
     {
       label: 'Twitter',
-      src: twitter,
+      src: svg_twitter,
       href: '',
     },
     {
       label: 'LinkedIn',
-      src: linkedin,
+      src: svg_linkedin,
       href: '',
     },
   ];
@@ -53,11 +53,7 @@
 <div id="contact" class="section"
   use:viewport
   on:enterViewport={() => setActive(3)}
->  
-
-  <div class="about-me"> 
-
-  </div>
+>
 
   <div class="contact">
 
@@ -66,7 +62,7 @@
     <div class="contact-body">
 
       <div class="socials">
-        {#each socials as { src, href, copy }}
+        {#each socials as { src, href, copy, }}
           {#if href}
             <a {href}>
               <img {src} alt="" />
@@ -82,9 +78,7 @@
         {/each}
       </div>
 
-      <form on:submit={e => {
-        e.preventDefault();
-      }}>
+      <form on:submit={e => e.preventDefault()}>
         <div class="field"> 
           <label for="name">Name</label>
           <input required type="text" id="name" name="name" placeholder=" " pattern={`.{1,}`}>
@@ -105,6 +99,10 @@
 
     </div>
   </div>
+
+  <div class="about-me">
+
+  </div>
     
 </div>
 
@@ -116,7 +114,7 @@
 
     font-size: 0.75vw;
 
-    padding: 1.5em var(--page-padding) 1.5em var(--page-padding);
+    padding: 0 var(--page-padding) 1.5em var(--page-padding);
   }
 
   .contact {
@@ -203,20 +201,22 @@
     font-size: 1.25em;
     font-weight: 500;
 
-    border: none;
+    border: 0.15em solid var(--darkgrey);
     border-radius: 0.6em;
-    outline-color: var(--darkgrey-01);
-    outline-offset: 0.3em;
-    outline-width: 0.75em;
-    box-shadow: 0 0 0.3em var(--darkgrey-03);
+    outline-color: var(--darkgrey);
+    outline-width: 0.01em;
 
     transition: box-shadow 0.3s, outline-color 0.3s;
 
     resize: none;
   }
 
+  input:focus-visible, textarea:focus-visible {
+    outline-style: solid;
+  }
+
   input:not(input:placeholder-shown), form:valid #submit {
-    box-shadow: 0 0 0.3em var(--input-color);
+    border-color: var(--input-color);
     outline-color: var(--input-color);
   }
 
@@ -231,6 +231,8 @@
     background-color: transparent;
 
     color: var(--darkgrey-03);
+
+    border: 0.107em solid var(--darkgrey-03);
 
     cursor: not-allowed;
 
@@ -255,7 +257,7 @@
   }
 
   .field:has(:focus) {
-    --input-color: var(--darkgrey-01);
+    --input-color: var(--darkgrey-03);
   }
 
   .field:has(:valid) {
@@ -263,9 +265,11 @@
   }
 
   form:valid #submit {
+    background-color: var(--valid-02);
+
     color: var(--darkgrey);
 
-    box-shadow: 0 0 0.3em var(--valid);
+    border-color: var(--valid);
 
     cursor: pointer;
   }

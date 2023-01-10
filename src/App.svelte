@@ -35,7 +35,7 @@
 
   main {
     display: grid;
-    gap: 10em;
+    gap: clamp(1rem, 10vw, 15rem);
   }
 
 </style>

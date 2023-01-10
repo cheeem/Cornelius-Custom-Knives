@@ -79,17 +79,17 @@
 
   :root {
     --watermark-size: 25vw;
-    --pfp-size: 5em;
+    --pfp-size: max(4.5rem, 5.5vw);
     --pfp-border-size: 0.2;
     --review-border-radius: 2em;
-    --content-padding-x: 4em;
-    --knife-border-radius: 0 var(--review-border-radius) var(--review-border-radius) 0;
+    --content-padding-left: 3em;
   }
 
   #reviews {
     display: flex;
     flex-direction: column;
-    gap: 10vw;
+    gap: calc(var(--watermark-size) / 2.1);
+
     padding: calc(5em + var(--page-padding)) var(--page-padding);
   }
 
@@ -156,9 +156,9 @@
   ul {
     display: flex;
     flex-direction: column;
-    gap: 4em;
+    gap: 5em;
 
-    font-size: 1vw;
+    font-size: max(0.65rem, 1vw);
   }
 
   li { 
@@ -173,6 +173,7 @@
 
     background-color: var(--white);
 
+    border-left: 1em solid var(--highlight);
     border-radius: var(--review-border-radius);
     box-shadow: 0 0 0.5em var(--darkgrey-03);
 
@@ -181,8 +182,8 @@
     opacity: 0;
     
     transition:
-      translate 1.5s ease-out,
-      opacity 1.5s ease-in-out;
+      translate 1s ease-out,
+      opacity 1s ease-in-out;
   }
 
   ul .viewed {
@@ -199,7 +200,7 @@
 
   .pfp {
     top: calc(var(--pfp-size) / -2);
-    left: var(--content-padding-x);
+    left: calc(1em + var(--content-padding-left));
 
     width: var(--pfp-size);
     height: var(--pfp-size);
@@ -270,15 +271,15 @@
     flex-direction: column;
     gap: 1.0em;
 
-    padding: 4em var(--content-padding-x) 3em var(--content-padding-x);
+    padding: 4em var(--content-padding-left) 3em calc(var(--content-padding-left) + 1em);
   }
 
   h3 {
-    font-size: 2em;
+    font-size: 1.75em;
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
 
   .knife {
@@ -290,23 +291,58 @@
     background-size: cover;
     background-position: center;
 
-    border-radius: var(--knife-border-radius);
+    border-radius: 0 var(--review-border-radius) var(--review-border-radius) 0;
   }
 
-  .knife::after {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 0;
+  @media (max-width: 1200px) {
 
-    width: 100%;
-    height: 100%;
+    :root {
+      --watermark-size: max(13.5rem, 40vw);
+    }
 
-    content: "";
+  }
 
-    /* background: linear-gradient(to right, white 1%, transparent, transparent); */
+  @media (max-width: 1200px) {
 
-    border-radius: var(--knife-border-radius);
+    .content {
+      flex: 4;
+    }
+
+  }
+
+  @media (max-width: 900px) {
+
+    :root {
+      --pfp-size: max(4rem, 6em);
+    }
+
+    ul {
+      font-size: max(0.65rem, 1.5vw);
+    }
+
+    li {
+      flex-direction: column;
+
+      border-left: unset;
+    }
+
+    .content {
+      padding: 5em 5em 3em 5em;
+    }
+    
+    .pfp {
+      left: 5em;
+    }
+
+    .knife {
+      flex: unset;
+
+      height: max(12rem, 30vw);
+
+      border-top: 1em solid var(--highlight);
+      border-radius: 0 0 var(--review-border-radius) calc(var(--review-border-radius) - 0em);
+    }
+
   }
 
 </style>

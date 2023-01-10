@@ -2,6 +2,8 @@
 
   //import svgs
   import svg_logo from './svg/logo.svg';
+  import svg_menu from './svg/Menu.svg';
+  import svg_exit from './svg/Cross.svg';
 
   //define nav tabs
   const tabs = [
@@ -26,24 +28,33 @@
   //get the active state
   export let active;
 
+  //define opened menu state
+  let opened = false;
+
 </script>
 
 <nav> 
 
   <a class="logo" href="#home">
     <img src={svg_logo} alt="" />
-    Cornelius Custom Knives
+    <p> Cornelius Custom Knives </p>
   </a>
 
-  <ul>
+  <ul class={opened && `opened`}>
     {#each tabs as { label, id, }, i}
-      <a href={`#${id}`}> 
+      <a href={`#${id}`} on:click={() => opened = false}> 
         <li class={active === i && `active`}> {label} </li>
       </a>
     {/each}
   </ul>
 
-  <a class="contact-me" href="#contact"> Contact Me </a>
+  <div> 
+    <a class="contact-me" href="#contact"> Contact Me </a>
+    <img class="menu" src={opened ? svg_exit : svg_menu} alt="" 
+      on:click={() => opened = !opened} 
+      on:keydown={() => opened = !opened}
+    />
+  </div>
 
 </nav>
 
@@ -56,7 +67,7 @@
 
     padding: 0 var(--page-padding);
 
-    font-size: clamp(0.5rem, 0.8vw, 4rem);
+    font-size: clamp(0.75rem, 0.8vw, 4rem);
 
     display: flex;
     justify-content: space-between;
@@ -130,21 +141,92 @@
   }
 
   .contact-me {
-    padding: 1em 2.15em;
+    padding: 1em 2.05em;
 
     font-size: 1.2em;
+    font-weight: 600;
 
     border-radius: 0.5em;
-    border: 0.15em solid var(--white);
-    box-shadow: 0 0 0.3em var(--darkgrey-03);
+    border: 0.15em solid var(--darkgrey);
 
-    transition: 0.3s;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .contact-me:hover {
     background-color: var(--highlight-01);
 
     border-color: var(--highlight);
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 2.5em;
+  }
+
+  .menu {
+    display: none;
+
+    width: 4em;
+  }
+
+  @media (max-width: 1000px) {
+
+    .logo p {
+      display: none;
+    }
+
+  }
+
+  @media (max-width: 750px) {
+
+    ul {
+      display: none;
+    }
+
+    .opened {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5em;
+
+      padding: 7.5em calc(var(--page-padding) + 0.75em);
+
+      width: 100%;
+      height: 100vh;
+
+      background-color: var(--white);
+    }
+
+    .opened li {
+      font-size: 1.75em;
+    }
+
+    .opened li::after {
+      left: unset;
+      right: 0;
+    }
+
+    .menu {
+      display: block;
+    }
+
+    .contact-me {
+      padding: 0.5em 1em;
+    }
+
+  }
+
+  @media (max-width: 550px) {
+
+    .contact-me {
+      display: none;
+    }
+
   }
 
 </style>
