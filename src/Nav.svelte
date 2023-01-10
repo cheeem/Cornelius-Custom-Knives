@@ -2,8 +2,6 @@
 
   //import svgs
   import svg_logo from './svg/logo.svg';
-  import svg_menu from './svg/Menu.svg';
-  import svg_exit from './svg/Cross.svg';
 
   //define nav tabs
   const tabs = [
@@ -31,6 +29,8 @@
   //define opened menu state
   let opened = false;
 
+  $: console.log(opened);
+
 </script>
 
 <nav> 
@@ -40,7 +40,7 @@
     <p> Cornelius Custom Knives </p>
   </a>
 
-  <ul class={opened && `opened`}>
+  <ul class={opened && `mobile-expanded`}>
     {#each tabs as { label, id, }, i}
       <a href={`#${id}`} on:click={() => opened = false}> 
         <li class={active === i && `active`}> {label} </li>
@@ -50,10 +50,19 @@
 
   <div> 
     <a class="contact-me" href="#contact"> Contact Me </a>
-    <img class="menu" src={opened ? svg_exit : svg_menu} alt="" 
+    <button class="menu" aria-expanded={opened}
       on:click={() => opened = !opened} 
       on:keydown={() => opened = !opened}
-    />
+    >
+      <svg fill="var(--darkgrey)" viewBox="0 0 100 100">
+        <rect width="80" height="10" x="10" y="25" rx="5">
+        </rect>
+        <rect width="80" height="10" x="10" y="45" rx="5">
+        </rect>
+        <rect width="80" height="10" x="10" y="65" rx="5">
+        </rect>
+      </svg>
+    </button>
   </div>
 
 </nav>
@@ -165,9 +174,50 @@
   }
 
   .menu {
-    display: none;
+    --menu-transition: 0.15s;
 
-    width: 4em;
+    z-index: 5;
+
+    display: none;
+    place-items: center;
+
+    background-color: transparent;
+    border: none;
+
+    width: 3.5em;
+  }
+
+  .menu rect {
+    transform-origin: center;
+
+    transition:
+     y var(--menu-transition)
+     ease-in var(--menu-transition), 
+     rotate var(--menu-transition) ease-in, 
+     opacity 0s var(--menu-transition);
+  }
+
+  .menu[aria-expanded="true"] rect {
+    transition:
+     y var(--menu-transition) ease-in,
+     rotate var(--menu-transition) ease-in var(--menu-transition),
+     opacity 0s var(--menu-transition);
+  }
+
+  .menu[aria-expanded="true"] :is(rect:nth-of-type(1), rect:nth-of-type(3)) {
+    y: 45;
+  }
+
+  .menu[aria-expanded="true"] rect:nth-of-type(1) {
+    rotate: 45deg;
+  }
+
+  .menu[aria-expanded="true"] rect:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  .menu[aria-expanded="true"] rect:nth-of-type(3) {
+    rotate: -45deg;
   }
 
   @media (max-width: 1000px) {
@@ -176,18 +226,20 @@
       display: none;
     }
 
+    .contact-me {
+      padding: 0.5em 1em;
+
+      font-size: 1.1em;
+    }
+
   }
 
   @media (max-width: 750px) {
 
     ul {
-      display: none;
-    }
-
-    .opened {
       position: absolute;
       top: 0;
-      right: 0;
+      right: -100vw;
 
       display: flex;
       flex-direction: column;
@@ -196,27 +248,33 @@
 
       padding: 7.5em calc(var(--page-padding) + 0.75em);
 
-      width: 100%;
       height: 100vh;
+      width: 100vw;
 
       background-color: var(--white);
+
+      transition: right 0.3s ease-in-out;
     }
 
-    .opened li {
-      font-size: 1.75em;
+    .mobile-expanded {
+      right: 0;
     }
 
-    .opened li::after {
+    .mobile-expanded li {
+      font-size: 2.5em;
+    }
+
+    .mobile-expanded li::after {
       left: unset;
       right: 0;
     }
 
-    .menu {
-      display: block;
+    .contact-me {
+      font-size: 1em;
     }
 
-    .contact-me {
-      padding: 0.5em 1em;
+    .menu {
+      display: grid;
     }
 
   }
