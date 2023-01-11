@@ -1,106 +1,101 @@
 /* import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Montserrat:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&family=Poppins:wght@400;600;800&display=swap');
 
 * {
-
   /* box sizing */
   box-sizing: border-box;
-
   /* margin and padding reset */
   margin: 0;
   padding: 0;
-
   /* universal font styles */
-  font-family: serif;
-  /* font-family: 'Playfair Display', serif; */
+  font-family: 'Montserrat', sans-serif;
   color: var(--darkgrey);
   text-decoration: none;
   list-style: none;
-  
 }
 
 :root {
 
   /* neutral palette */
-  --white: white;
-  --lightestgrey: hsla(0, 0%, 95%, 1);
-  --lightgrey: hsla(0, 0%, 90%, 1);
-  --mediumgrey: hsla(0, 0%, 80%, 1);
-  --mediumdarkgrey: hsla(0, 0%, 45%, 1);
-  --darkgrey: hsla(0,0%,9%, 1);
+  --offwhite: white;
+  --lightgrey: hsla(252, 10%, 96%, 1);
+  --mediumgrey: hsla(252, 10%, 80%, 1);
+  --mediumdarkgrey: hsla(252, 10%, 45%, 1);
+  --darkgrey: hsla(252, 10%, 30%, 1);
+  
+  /* low-alpha neutral palette */
+  --darkgrey-01: hsla(252, 10%, 30%, 0.1);
+  --darkgrey-02: hsla(252, 10%, 30%, 0.2);
+  --darkgrey-03: hsla(252, 10%, 30%, 0.3);
+  --darkgrey-04: hsla(252, 10%, 30%, 0.4);
+  --darkgrey-05: hsla(252, 10%, 30%, 0.5);
+  --darkgrey-06: hsla(252, 10%, 30%, 0.6);
+  --darkgrey-07: hsla(252, 10%, 30%, 0.7);
+  --darkgrey-08: hsla(252, 10%, 30%, 0.8);
+  --darkgrey-09: hsla(252, 10%, 30%, 0.9);
 
-  /* highlight palette */
-  --highlight: hsla(51, 100%, 50%, 1);
+  /* color palette */ 
+  --color1: hsla(240, 100%, 71%, 1);
+  --color2: hsla(308, 80%, 64%, 1);
+  --color3: hsla(336, 100%, 69%, 1);
+  --color4: hsla(14, 100%, 72%, 1);
+  --color5: hsla(40, 100%, 67%, 1);
+  --color6: hsla(60, 92%, 71%, 1);
+  --color7: hsla(165, 47%, 52%, 1);
 
-  /* darkgrey opacity palette */
-  --darkgrey-01: hsla(0,0%,9%, 0.1);
-  --darkgrey-02: hsla(0,0%,9%, 0.2);
-  --darkgrey-03: hsla(0,0%,9%, 0.3);
-  --darkgrey-04: hsla(0,0%,9%, 0.4);
-  --darkgrey-05: hsla(0,0%,9%, 0.5);
-  --darkgrey-06: hsla(0,0%,9%, 0.6);
-  --darkgrey-07: hsla(0,0%,9%, 0.7);
-  --darkgrey-08: hsla(0,0%,9%, 0.8);
-  --darkgrey-09: hsla(0,0%,9%, 0.9);
-
-  /* highlight opacity palette */
-  --highlight-01: hsla(51, 100%, 50%, 0.1);
-  --highlight-02: hsla(51, 100%, 50%, 0.2);
-  --highlight-03: hsla(51, 100%, 50%, 0.3);
-  --highlight-04: hsla(51, 100%, 50%, 0.4);
-  --highlight-05: hsla(51, 100%, 50%, 0.5);
-  --highlight-06: hsla(51, 100%, 50%, 0.6);
-  --highlight-07: hsla(51, 100%, 50%, 0.7);
-  --highlight-08: hsla(51, 100%, 50%, 0.8);
-  --highlight-09: hsla(51, 100%, 50%, 0.9);
-
-  /* validity palette */
-  --valid: hsla(120, 73%, 75%, 1);
-  --valid-02: hsla(120, 73%, 75%, 0.2);
-  --invalid: red;
+  /* low-alpha color palette */
+  --color1-03: hsla(240, 100%, 71%, 0.3);
+  --color2-03: hsla(308, 80%, 64%, 0.3);
+  --color3-03: hsla(336, 100%, 69%, 0.3);
+  --color4-03: hsla(14, 100%, 72%, 0.3);
+  --color5-03: hsla(40, 100%, 67%, 0.3);
+  --color6-03: hsla(60, 92%, 71%, 0.3);
 
   /*filter palette */
-  --filter-white: invert(100%) sepia(0%) saturate(7500%) hue-rotate(23deg) brightness(118%) contrast(118%);
-  --filter-darkgrey: invert(0%) sepia(82%) saturate(5293%) hue-rotate(76deg) brightness(62%) contrast(82%);
-  --filter-highlight: brightness(0) saturate(100%) invert(90%) sepia(15%) saturate(6108%) hue-rotate(357deg) brightness(102%) contrast(108%);
+  --filter-offwhite: invert(100%) sepia(0%) saturate(7500%) hue-rotate(23deg) brightness(118%) contrast(118%);
+  --filter-darkgrey: invert(26%) sepia(16%) saturate(589%) hue-rotate(208deg) brightness(89%) contrast(85%);
+
+  --filter-color1: invert(43%) sepia(83%) saturate(3546%) hue-rotate(225deg) brightness(106%) contrast(104%);
+  --filter-color2: invert(54%) sepia(55%) saturate(3175%) hue-rotate(279deg) brightness(97%) contrast(91%);
+  --filter-color3: invert(54%) sepia(100%) saturate(1715%) hue-rotate(302deg) brightness(101%) contrast(101%);
+  --filter-color4: invert(67%) sepia(98%) saturate(1375%) hue-rotate(314deg) brightness(107%) contrast(111%);
+  --filter-color5: invert(83%) sepia(87%) saturate(684%) hue-rotate(313deg) brightness(102%) contrast(101%);
+  --filter-color6: invert(81%) sepia(40%) saturate(486%) hue-rotate(14deg) brightness(107%) contrast(104%);
+
+  /*shadow styles*/
+  --shadow1: 0 0 0.2em var(--darkgrey-07);
+  --shadow2: 0 0 0.5em var(--darkgrey-07);
+  --shadow3: 0 0 0.05em var(--color1);
+  --shadow4: 0 0 0.3em var(--color1);
+  --shadow5: 0 0 0.05em var(--offwhite);
+  --shadow6: 0 0 0.8em;
+  --shadow7: 0 0.5em 0.5em;
 
   /* sizing styles */
-  --page-padding: clamp(3rem, 8vw, 40rem);
+  --top-padding: 3em;
+  --side-padding: 5em;
+  --page-height: calc(100vh - var(--top-padding) -  var(--top-padding));
 
 }
 
-html {
-  scroll-behavior: smooth;
+body {
+  background-color: var(--offwhite);
 }
 
-.section {
-  overflow: hidden;
-
-  position: relative;
-
-  min-height: calc(min(100vw, 100vh) - var(--page-padding));
+.page {
+  position: relative; 
+  width: 100%;
+  height: var(--page-height);
 }
 
-.section:not(#home) {
-  padding: var(--page-padding);
+.hidden {
+  opacity: 0;
 }
 
-span {
-  position: relative;
+.no-display {
+  display: none;
 }
 
-span::before {
-  z-index: -1;
-
-  position: absolute;
-  bottom: 14%;
-  left: 0;
-
-  height: 20%;
-  width: 100.75%;
-
-  background-color: var(--highlight);
-
-  content: "";
+img {
+  filter: var(--filter-darkgrey);
 }
-

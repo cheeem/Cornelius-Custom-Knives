@@ -1,287 +1,220 @@
 <script>
 
   //import svgs
-  import svg_logo from './svg/logo.svg';
+  import svg_eye from './svg/Eye.svg';
+  import svg_menu from './svg/Menu.svg';
 
-  //define nav tabs
-  const tabs = [
-    {
-      label: 'HOME',
-      id: 'home',
-    },
-    {
-      label: 'PRODUCTS',
-      id: 'products',
-    },
-    {
-      label: 'REVIEWS',
-      id: 'reviews',
-    },
-    // {
-    //   label: 'MY CRAFT',
-    //   id: 'my-craft',
-    // },
-  ];
+  //get nav tabs
+  export let tabs;
 
-  //get the active state
+  //get the active tab
   export let active;
 
-  //define opened menu state
-  let opened = false;
+  //get setActive function
+  export let setActive;
 
-  $: console.log(opened);
+  //define menu opened state
+  let opened = false;
 
 </script>
 
-<nav> 
+<div class="mobile-display">
+  <img src={svg_menu} alt=""
+    on:click={() => opened = !opened}
+    on:keydown={() => opened = !opened} 
+  />
+  <p> {tabs[active].label} </p>
+  <!-- <img src={tabs[active].svg} alt="" /> -->
+</div>
 
-  <a class="logo" href="#home">
-    <img src={svg_logo} alt="" />
-    <p> Cornelius Custom Knives </p>
-  </a>
+<div class={`nav ${opened && 'opened'}`}>
 
-  <ul class={opened && `mobile-expanded`}>
-    {#each tabs as { label, id, }, i}
-      <a href={`#${id}`} on:click={() => opened = false}> 
-        <li class={active === i && `active`}> {label} </li>
-      </a>
+  <div class="logo">
+    <img src={svg_eye} alt="" />
+    <p> Set Observer </p>
+  </div>
+  
+  <ul class="tab-list">
+    {#each tabs as { label, svg, }, i}
+      <li class={`tab ${active === i ? `active` : ``}`}
+        on:click={() => setActive(i)}
+        on:keydown={() => setActive(i)}
+      >
+        <img src={svg} alt="" />
+        <div> </div>
+        <p> {label} </p>
+      </li>
     {/each}
   </ul>
 
-  <div> 
-    <a class="contact-me" href="#contact"> Contact Me </a>
-    <button class="menu" aria-expanded={opened}
-      on:click={() => opened = !opened} 
-      on:keydown={() => opened = !opened}
-    >
-      <svg fill="var(--darkgrey)" viewBox="0 0 100 100">
-        <rect width="80" height="10" x="10" y="25" rx="5">
-        </rect>
-        <rect width="80" height="10" x="10" y="45" rx="5">
-        </rect>
-        <rect width="80" height="10" x="10" y="65" rx="5">
-        </rect>
-      </svg>
-    </button>
-  </div>
-
-</nav>
+</div>
 
 <style>
 
-  nav {
-    z-index: 5;
-
-    position: fixed;
-
-    padding: 0 var(--page-padding);
-
-    font-size: clamp(0.75rem, 0.8vw, 4rem);
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    width: 100%;
-
-    background: var(--white);
-  }
-
-  a {
-    display: grid;
-    place-items: center;
-
-    padding: 2em 0;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-
-    font-size: 1.5em;
-    font-weight: 600;
+  :root {
+    --nav-padding: 2em;
+    --tab-padding: 0.5em;
   }
 
   img {
-    width: 1.5em;
+    width: 2em;
 
-    filter: var(--filter-darkgrey);
+    filter: var(--filter-offwhite) drop-shadow(var(--shadow1));
   }
 
-  ul {
-    display: flex;
-    align-items: center;
-    gap: 4em;
+  p {
+    color: var(--offwhite);
+    font-weight: 600;
+    text-shadow: var(--shadow1);
+    white-space: nowrap;
+
+    transition: 0.25s ease;
   }
 
-  li {
-    position: relative;
-
-    font-size: 1.1em;
-    font-weight: 500;
-
-    color: var(--darkgrey);
+  .mobile-display {
+    display: none;
   }
+  
+  .nav {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
 
-  li::after {
-    position: absolute;
+    padding: var(--nav-padding) 0;
 
-    display: block;
-    left: 0;
-    bottom: -0.35em;
+    width: fit-content;
+    height: var(--page-height);
 
-    width: 0;
-    height: 0.08em;
+    background-color: var(--color1);
 
-    background-color: var(--darkgrey);
+    border-radius: 1em;
 
-    content: "";
+    box-shadow: var(--shadow4);
 
     transition: 0.2s;
+
+    translate: 0;
   }
 
-  a:hover li::after {
-    width: 100%;
-  }
-
-  .active::after {
-    width: 1.25em
-  }
-
-  .contact-me {
-    padding: 1em 2.05em;
-
-    font-size: 1.2em;
-    font-weight: 600;
-
-    border-radius: 0.5em;
-    border: 0.15em solid var(--darkgrey);
-
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-
-  .contact-me:hover {
-    background-color: var(--highlight-01);
-
-    border-color: var(--highlight);
-  }
-
-  div {
+  .logo {
     display: flex;
+    flex-direction: column;
+  }
+
+  .logo img {
+    margin: 0 auto;
+
+    width: 5em;
+
+    filter: var(--filter-offwhite) drop-shadow(var(--shadow1));
+  }
+
+  .logo p { 
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  .tab-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tab {
+    position: relative;
+
+    display: flex;
+    gap: 0.5em;
     align-items: center;
-    gap: 2.5em;
+
+    padding: var(--tab-padding) var(--nav-padding) var(--tab-padding) var(--nav-padding);
+
+    cursor: pointer;
   }
 
-  .menu {
-    --menu-transition: 0.15s;
+  .tab div {
+    width: 0.15em;
+    height: 1em;
 
-    z-index: 5;
+    background-color: var(--offwhite);
 
-    display: none;
-    place-items: center;
+    border-radius: 0.15em;
 
-    background-color: transparent;
-    border: none;
-
-    width: 3.5em;
-  }
-
-  .menu rect {
-    transform-origin: center;
-
-    transition:
-     y var(--menu-transition)
-     ease-in var(--menu-transition), 
-     rotate var(--menu-transition) ease-in, 
-     opacity 0s var(--menu-transition);
-  }
-
-  .menu[aria-expanded="true"] rect {
-    transition:
-     y var(--menu-transition) ease-in,
-     rotate var(--menu-transition) ease-in var(--menu-transition),
-     opacity 0s var(--menu-transition);
-  }
-
-  .menu[aria-expanded="true"] :is(rect:nth-of-type(1), rect:nth-of-type(3)) {
-    y: 45;
-  }
-
-  .menu[aria-expanded="true"] rect:nth-of-type(1) {
-    rotate: 45deg;
-  }
-
-  .menu[aria-expanded="true"] rect:nth-of-type(2) {
     opacity: 0;
+
+    translate: 0.3em 0;
+
+    transition: 0.25s ease;
+
+    box-shadow: var(--shadow1);
   }
 
-  .menu[aria-expanded="true"] rect:nth-of-type(3) {
-    rotate: -45deg;
+  .tab:hover img {
+    filter: var(--filter-offwhite) drop-shadow(var(--shadow5));
   }
 
-  @media (max-width: 1000px) {
+  .tab:hover div {
+    box-shadow: var(--shadow5);
+  }
 
-    .logo p {
-      display: none;
+  .tab:hover p {
+    text-shadow: var(--shadow5);
+  }
+
+  .active div {
+    opacity: 1;
+
+    translate: 0 0;
+  }
+
+  @media only screen and (max-width: 1250px) {
+
+    :root {
+      --hamburger-size: 3em;
     }
 
-    .contact-me {
-      padding: 0.5em 1em;
-
-      font-size: 1.1em;
-    }
-
-  }
-
-  @media (max-width: 750px) {
-
-    ul {
-      position: absolute;
-      top: 0;
-      right: -100vw;
-
+    .mobile-display {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.5em;
+      justify-content: space-between;
+      align-items: center;
 
-      padding: 7.5em calc(var(--page-padding) + 0.75em);
+      padding: 0 1.5em 2em 1em;
 
-      height: 100vh;
-      width: 100vw;
-
-      background-color: var(--white);
-
-      transition: right 0.3s ease-in-out;
+      width: 100%;
     }
 
-    .mobile-expanded {
-      right: 0;
+    .mobile-display img {
+      width: var(--hamburger-size);
+
+      filter: var(--filter-color1);
     }
 
-    .mobile-expanded li {
-      font-size: 2.5em;
+    .mobile-display p {
+      font-weight: 600;
+      color: var(--color1);
+      text-shadow: none;
     }
 
-    .mobile-expanded li::after {
-      left: unset;
-      right: 0;
+    .nav:not(.opened) {
+      opacity: 0;
+
+      translate: -20em 0;
     }
 
-    .contact-me {
-      font-size: 1em;
+    .nav {
+      display: block;
+
+      z-index: 10;
+
+      position: absolute;
+      top: calc(var(--hamburger-size) * 2);
+
+      margin: 0 1.5em;
+
+      height: fit-content;
+
+      font-size: calc(0.8em + 0.5vw);
     }
 
-    .menu {
-      display: grid;
-    }
-
-  }
-
-  @media (max-width: 550px) {
-
-    .contact-me {
+    .logo {
       display: none;
     }
 
