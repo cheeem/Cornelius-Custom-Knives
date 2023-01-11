@@ -112,15 +112,17 @@
     display: flex;
     justify-content: space-between;
 
-    font-size: 0.75vw;
+    font-size: max(calc(0.1rem + 0.6vw), calc(0.35rem + 0.35vw), calc(1vw - 0.5rem));
 
-    padding: 0 var(--page-padding) 1.5em var(--page-padding);
+    padding: var(--nav-height) var(--page-padding) 0 var(--page-padding);
   }
 
   .contact {
     display: flex;
     flex-direction: column;
     gap: 3em;
+
+    margin-bottom: 3em;
   }
 
   h1 {

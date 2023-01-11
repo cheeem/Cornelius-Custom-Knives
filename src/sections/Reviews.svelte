@@ -90,7 +90,8 @@
     flex-direction: column;
     gap: calc(var(--watermark-size) / 2.1);
 
-    padding: calc(5em + var(--page-padding)) var(--page-padding);
+    padding: var(--page-padding);
+    padding-top: calc(var(--nav-height) + 5em);
   }
 
   .heading {
@@ -279,7 +280,7 @@
   }
 
   p {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 
   .knife {

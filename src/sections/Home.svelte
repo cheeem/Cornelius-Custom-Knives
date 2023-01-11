@@ -1,5 +1,8 @@
 <script>
 
+  //import svgs
+  import svg_checkerboard from '../svg/Checkerboard.svg';
+
   //import images 
   import img_knife11_6 from '../img/knife11-6.png';
 
@@ -16,7 +19,7 @@
     1, 0, 1, 0, 1,
     0, 1, 0, 1, 0,
     1, 0, 1, 0, 1,
-  ]
+  ];
 
 </script>
 
@@ -58,15 +61,18 @@
   }
 
   .grid {
+    --grid-size: calc(100vh - var(--nav-height));
+    --grid-max: 50%;
+
     position: absolute;
-    top: var(--page-padding);
-    left: 55.85%;
+    top: var(--nav-height);
+    right: min(0vw, calc(var(--grid-max) - var(--grid-size)));
 
     display: grid;
     grid-auto-rows: auto;
 
-    width: 45%;
-    height: calc(100% - var(--page-padding));
+    width: var(--grid-size);
+    height: var(--grid-size);
   }
 
   .grid>div {
@@ -77,9 +83,9 @@
     cursor: pointer;
   }
 
-  img {
+  a img {
     position: absolute;
-    top: 35vh;
+    bottom: 22.5vh;
     left: 0;
 
     width: 130vw;
@@ -91,18 +97,19 @@
     transition: 0.5s;
   }
 
-  img:hover {
+  a img:hover {
     filter: grayscale(0%) drop-shadow(0.2em 0.5em 0.2em var(--dakrgrey-02));;
     
     scale: 1.03;
+    opacity: 1;
   }
 
   .heading {
     margin: var(--page-padding);
 
-    font-size: clamp(0.65rem, 1vw, 4rem);
+    font-size: max(calc(0.5rem + 0.6vw), 1.1vw);
 
-    translate: 0 -11.5vw;
+    translate: 0 -11vw;
   }
 
   .heading * {
@@ -127,10 +134,50 @@
      width: 109%;
   }
 
-  @media (min-aspect-ratio: 25/10), (max-aspect-ratio: 33/20) {
+  @media (max-width: 1200px) {
     
     .grid {
+      --grid-max: 40%;
+    }
+
+    a img {
+      rotate: -13deg;
+    }
+
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+
+    .grid {
       display: none;
+    }
+
+    a img {
+      top: 55vh;
+      left: -20vh;
+
+      width: 130vh;
+      height: 20vh;
+
+      rotate: -20deg;
+    }
+
+    .heading {
+      translate: 0 -15vh;
+    }
+
+  }
+
+  @media (max-width: 480px) {
+    
+    a img {
+      top: 47.5vh;
+
+      width: 85vh;
+      height: 13vh;
+
+      rotate: -75deg;
+      opacity: 0.3;
     }
 
   }
