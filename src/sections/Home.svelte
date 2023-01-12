@@ -1,7 +1,7 @@
 <script>
 
   //import svgs
-  import svg_checkerboard from '../svg/Checkerboard.svg';
+  import svg_splash from '../svg/splash.svg';
 
   //import images 
   import img_knife11_6 from '../img/knife11-6.png';
@@ -35,6 +35,8 @@
       <div style={`background-color: var(--${grid[i] ? 'white' : 'highlight'});`}></div>
     {/each}
   </div>
+
+  <img class="splash" src={svg_splash} alt="" />
 
   <a href="#products"> <img src={img_knife11_6} alt="" />  </a>
     
@@ -75,8 +77,19 @@
     height: var(--grid-size);
   }
 
-  .grid>div {
-    background-color: white;
+  .splash {
+    position: absolute;
+    top: 13.5vh;
+    right: 5vh;
+
+    display: none;
+
+    height: calc(100vh);
+
+    transform: scaleX(-1);
+    rotate: 20deg;
+
+    filter: var(--filter-highlight);
   }
 
   a {
@@ -134,10 +147,14 @@
      width: 109%;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1100px) {
     
     .grid {
-      --grid-max: 40%;
+      display: none;
+    }
+
+    .splash {
+      display: block;
     }
 
     a img {
@@ -147,10 +164,6 @@
   }
 
   @media (max-aspect-ratio: 1/1) {
-
-    .grid {
-      display: none;
-    }
 
     a img {
       top: 55vh;
@@ -169,15 +182,22 @@
   }
 
   @media (max-width: 480px) {
+
+    .splash {
+      top: 31.75vh;
+      left: 0;
+
+      height: 80%;
+    }
     
     a img {
-      top: 47.5vh;
+      top: 67.5vh;
+      left: -7.5vw;
 
       width: 85vh;
       height: 13vh;
 
-      rotate: -75deg;
-      opacity: 0.3;
+      rotate: -25deg;
     }
 
   }
