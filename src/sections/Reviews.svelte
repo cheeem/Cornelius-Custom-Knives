@@ -183,8 +183,8 @@
     opacity: 0;
     
     transition:
-      translate 1s ease-out,
-      opacity 1s ease-in-out;
+      translate 0.75s ease-out,
+      opacity 0.75s ease-in-out;
   }
 
   ul .viewed {

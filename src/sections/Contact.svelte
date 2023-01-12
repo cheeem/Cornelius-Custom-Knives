@@ -53,6 +53,7 @@
 <div id="contact" class="section"
   use:viewport
   on:enterViewport={() => setActive(3)}
+  on:exitViewport={() => setActive(2)}
 >
 
   <div class="contact">

@@ -184,14 +184,14 @@
   @media (max-width: 480px) {
 
     .splash {
-      top: 31.75vh;
+      top: 25vh;
       left: 0;
 
       height: 80%;
     }
     
     a img {
-      top: 67.5vh;
+      top: 60.5vh;
       left: -7.5vw;
 
       width: 85vh;

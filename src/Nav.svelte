@@ -17,10 +17,10 @@
       label: 'REVIEWS',
       id: 'reviews',
     },
-    // {
-    //   label: 'MY CRAFT',
-    //   id: 'my-craft',
-    // },
+    {
+      label: 'CONTACT',
+      id: 'contact',
+    },
   ];
 
   //get the active state
@@ -28,8 +28,6 @@
 
   //define opened menu state
   let opened = false;
-
-  $: console.log(opened);
 
 </script>
 
@@ -41,8 +39,11 @@
   </a>
 
   <ul class={opened && `mobile-expanded`}>
+    <img src={svg_logo} alt="" />
     {#each tabs as { label, id, }, i}
-      <a href={`#${id}`} on:click={() => opened = false}> 
+      <a href={`#${id}`} 
+        on:click={() => opened = false}
+      > 
         <li class={active === i && `active`}> {label} </li>
       </a>
     {/each}
@@ -104,16 +105,38 @@
     font-weight: 600;
   }
 
-  img {
+  .logo img {
     width: 1.5em;
 
     filter: var(--filter-darkgrey);
   }
 
   ul {
+    position: relative;
+
     display: flex;
     align-items: center;
     gap: 4em;
+  }
+
+  ul img {
+    position: absolute;
+    top: 5vw;
+    left: calc(50vw - 20em);
+
+    display: none;
+
+    width: 40em;
+
+    rotate: -10deg;
+
+    filter: var(--filter-darkgrey);
+
+    opacity: 0.02;
+  }
+
+  ul a:last-of-type {
+    display: none;
   }
 
   li {
@@ -126,16 +149,18 @@
   }
 
   li::after {
+    z-index: -1;
+
     position: absolute;
 
     display: block;
-    left: 0;
-    bottom: -0.35em;
+    bottom: 10%;
+    left: -1%;
 
     width: 0;
-    height: 0.08em;
+    height: 22.5%;
 
-    background-color: var(--darkgrey);
+    background-color: var(--highlight);
 
     content: "";
 
@@ -143,11 +168,11 @@
   }
 
   a:hover li::after {
-    width: 100%;
+    width: 102%;
   }
 
   .active::after {
-    width: 1.25em
+    width: 1.45em
   }
 
   .contact-me {
@@ -261,13 +286,23 @@
       right: 0;
     }
 
+    .mobile-expanded img {
+      display: block;
+    }
+
+    .mobile-expanded a:last-of-type {
+      display: block;
+    }
+
     .mobile-expanded li {
+      z-index: 1;
+
       font-size: 2.5em;
     }
 
     .mobile-expanded li::after {
       left: unset;
-      right: 0;
+      right: -1%;
     }
 
     .contact-me {
