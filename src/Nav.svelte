@@ -176,7 +176,7 @@
   }
 
   .contact-me {
-    padding: 1em 2.05em;
+    padding: 1em 2em;
 
     font-size: 1.2em;
     font-weight: 600;
