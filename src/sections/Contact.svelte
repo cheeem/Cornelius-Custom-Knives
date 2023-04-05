@@ -19,12 +19,12 @@
     {
       label: 'Email',
       src: svg_email,
-      href: 'mailto:wernerjt@rfhstudent.org',
+      href: 'mailto:cscorne@gmail.com',
     },
     {
       label: 'Phone Number',
       src: svg_phone,
-      href: 'tel:2025554502',
+      href: 'tel:2404620399',
     },
     {
       label: 'Facebook',
@@ -53,7 +53,6 @@
 <div id="contact" class="section"
   use:viewport
   on:enterViewport={() => setActive(3)}
-  on:exitViewport={() => setActive(2)}
 >
 
   <div class="contact">
@@ -79,7 +78,7 @@
         {/each}
       </div>
 
-      <form on:submit={e => e.preventDefault()}>
+      <form on:submit|preventDefault>
         <div class="field"> 
           <label for="name">Name</label>
           <input required type="text" id="name" name="name" placeholder=" " pattern={`.{1,}`}>

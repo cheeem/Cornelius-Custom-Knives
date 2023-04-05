@@ -42,7 +42,7 @@
     
   <div class="heading">
     <h1> Cornelius </h1>
-    <h4> Invite <span> Color </span> To Your Kitchen </h4>
+    <h4> Invite <span> Custom </span> To Your Kitchen </h4>
   </div>
 
 </div>

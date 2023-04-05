@@ -15,20 +15,37 @@
   //define active state
   let active = 0;
 
+  const pages = [
+    {
+      label: 'HOME',
+      id: 'home',
+      component: Home,
+    },
+    {
+      label: 'PRODUCTS',
+      id: 'products',
+      component: Products,
+    },
+    // {
+    //   label: 'REVIEWS',
+    //   id: 'reviews',
+    //   component: Reviews,
+    // },
+    {
+      label: 'CONTACT',
+      id: 'contact',
+      component: Contact,
+    },
+  ];
+
 </script>
 
-<Nav {active} />
+<Nav {active} tabs={pages} />
 
 <main>
-
-  <Home {setActive} />
-
-  <Products {setActive} />
-
-  <Reviews {setActive} />
-
-  <Contact {setActive} />
-
+  {#each pages as { component }}
+    <svelte:component this={component} {setActive} />
+  {/each}
 </main>
 
 <style>

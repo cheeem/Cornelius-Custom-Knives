@@ -4,24 +4,7 @@
   import svg_logo from './svg/logo.svg';
 
   //define nav tabs
-  const tabs = [
-    {
-      label: 'HOME',
-      id: 'home',
-    },
-    {
-      label: 'PRODUCTS',
-      id: 'products',
-    },
-    {
-      label: 'REVIEWS',
-      id: 'reviews',
-    },
-    {
-      label: 'CONTACT',
-      id: 'contact',
-    },
-  ];
+  export let tabs;
 
   //get the active state
   export let active;
@@ -182,15 +165,15 @@
     font-weight: 600;
 
     border-radius: 0.5em;
-    border: 0.15em solid var(--darkgrey);
+    /* border: 0.15em solid var(--darkgrey); */
 
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .contact-me:hover {
-    background-color: var(--highlight-01);
+    background-color: var(--highlight-03);
 
-    border-color: var(--highlight);
+    /* border-color: var(--highlight); */
   }
 
   div {
@@ -200,7 +183,7 @@
   }
 
   .menu {
-    --menu-transition: 0.15s;
+    --menu-transition: 0.1s;
 
     z-index: 5;
 
@@ -210,7 +193,7 @@
     background-color: transparent;
     border: none;
 
-    width: 3.5em;
+    width: 3em;
   }
 
   .menu rect {
@@ -279,7 +262,7 @@
 
       background-color: var(--white);
 
-      transition: right 0.3s ease-in-out;
+      transition: right 0.2s;
     }
 
     .mobile-expanded {

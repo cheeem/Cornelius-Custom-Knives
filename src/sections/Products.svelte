@@ -4,11 +4,11 @@
   import svg_logo from '../svg/logo.svg';
 
   //import images 
-  import img_knife11 from '../img/knife11.jpg';
-  import img_knife14 from '../img/knife14.jpg';
-  import img_knife15 from '../img/knife15.jpg';
-  import img_knife16 from '../img/knife16.jpg';
-  import img_knife10 from '../img/knife10.jpg';
+  import img_knife22 from '../img/knife22.jpg';
+  import img_knife25 from '../img/knife25.jpg';
+  import img_knife26 from '../img/knife26.jpg';
+  import img_knife27 from '../img/knife27.jpg';
+  import img_knife28 from '../img/knife28.jpg';
 
   //import utilities
   import { viewport } from '../utils/viewport.js';
@@ -21,11 +21,11 @@
 
   //define knives
   const knives = [
-    img_knife16,
-    img_knife10,
-    img_knife11,
-    img_knife14,
-    img_knife15,
+    img_knife22,
+    img_knife25,
+    img_knife26,
+    img_knife27,
+    img_knife28,
   ];
 
   $: angle = viewed ? 80 : 30;
@@ -44,7 +44,7 @@
     <div class="sidebar-line"></div>
       <div class="sidebar-content">
         <p> One-of-a-kind knives handcrafted with durability, quality, and personality </p>
-        <p> Explore The Catalogue </p>
+        <!-- <p class="catalogue-cta"> Explore The Catalogue </p> -->
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@
     font-weight: 500;
   }
 
-  p:last-of-type {
+  .catalogue-cta {
     font-size: 1.2em;
     text-decoration: underline;
 
@@ -193,7 +193,7 @@
       rotate 1s ease,
       scale 0.2s ease;
 
-    cursor: pointer;
+    /* cursor: pointer; */
   }
 
   .viewed {
