@@ -4,10 +4,10 @@
   import Nav from './Nav.svelte';
 
   //import sections
-  import Home from './sections/Home.svelte';
-  import Products from './sections/Products.svelte';
-  import Reviews from './sections/Reviews.svelte';
-  import Contact from './sections/Contact.svelte';
+  import Home from './pages/Home.svelte';
+  import Products from './pages/Products.svelte';
+  import Reviews from './pages/Reviews.svelte';
+  import Contact from './pages/Contact.svelte';
 
   //set the active state
   const setActive = i => active = i;
@@ -26,11 +26,11 @@
       id: 'products',
       component: Products,
     },
-    // {
-    //   label: 'REVIEWS',
-    //   id: 'reviews',
-    //   component: Reviews,
-    // },
+    {
+      label: 'REVIEWS',
+      id: 'reviews',
+      component: Reviews,
+    },
     {
       label: 'CONTACT',
       id: 'contact',
